@@ -1,0 +1,131 @@
+/* =========================================================
+   Sello — páginas legais (Política de Privacidade / Termos)
+   Reaproveita tokens, fontes e o wordmark do css/sello.css.
+   Estética: documento editorial, leitura à esquerda, 1 accent.
+   ========================================================= */
+:root{ --paper:#FBFBF9; --read:772px; --body-ink:#272D3A; }
+
+body.legal{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ---------- header ---------- */
+.lhead{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,251,249,.82);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  backdrop-filter:blur(14px) saturate(160%);
+  border-bottom:1px solid var(--line);
+}
+.lhead__inner{
+  max-width:var(--read);margin-inline:auto;
+  padding:15px clamp(20px,5vw,32px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.lhead__brand{display:flex;align-items:center}
+.lhead__mark{
+  display:block;height:23px;width:85px;background:var(--red);
+  -webkit-mask:url(../assets/img/wordmark.svg) no-repeat left center/contain;
+  mask:url(../assets/img/wordmark.svg) no-repeat left center/contain;
+}
+.lhead__back{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-ui);font-size:.92rem;font-weight:500;color:var(--muted);
+  transition:color .2s var(--ease);
+}
+.lhead__back:hover{color:var(--ink)}
+.lhead__back svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s var(--ease)}
+.lhead__back:hover svg{transform:translateX(-2px)}
+
+/* ---------- article ---------- */
+.legal__main{padding:clamp(40px,7vw,76px) 0 0}
+.legal__article{
+  max-width:var(--read);margin-inline:auto;
+  padding-inline:clamp(20px,5vw,32px);
+}
+.legal__article .eyebrow{margin:0 0 .55rem}
+.legal__title{
+  font-family:var(--font-disp);font-weight:400;text-transform:uppercase;
+  color:var(--ink);line-height:1.02;letter-spacing:.012em;
+  font-size:clamp(2.15rem,6vw,3.35rem);margin:0;
+}
+.legal__meta{font-family:var(--font-ui);color:var(--muted);font-size:.92rem;margin:1.05rem 0 0;letter-spacing:.005em}
+.legal__lede{font-size:clamp(1.06rem,1.5vw,1.2rem);line-height:1.62;color:var(--ink);margin:1.7rem 0 0;max-width:64ch}
+
+/* links no corpo do documento */
+.legal__article a:not(.lhead__back){
+  color:var(--red);text-decoration:none;
+  border-bottom:1px solid rgba(227,15,47,.34);transition:border-color .2s var(--ease);
+}
+.legal__article a:not(.lhead__back):hover{border-color:var(--red)}
+
+/* ---------- índice (TOC) ---------- */
+.legal__toc{
+  margin:2.6rem 0 0;padding:22px clamp(20px,3vw,28px);
+  background:var(--white);border:1px solid var(--line);border-radius:16px;
+}
+.legal__toc-title{
+  font-family:var(--font-ui);font-weight:600;text-transform:uppercase;
+  letter-spacing:.14em;font-size:.72rem;color:var(--muted);margin:0 0 1rem;
+}
+.legal__toc ol{margin:0;padding:0;list-style:none;counter-reset:toc;columns:2;column-gap:36px}
+.legal__toc li{counter-increment:toc;margin:0 0 .58rem;break-inside:avoid}
+.legal__toc li a{display:flex;gap:.7em;align-items:baseline;color:var(--ink);border:0;font-size:.96rem;line-height:1.35}
+.legal__toc li a::before{content:counter(toc);color:var(--red);font-weight:700;font-variant-numeric:tabular-nums;min-width:1.25em;flex:none}
+.legal__toc li a:hover{color:var(--red)}
+
+/* ---------- seções ---------- */
+.legal__section{margin:2.9rem 0 0;scroll-margin-top:84px}
+.legal__h2{
+  font-family:var(--font-body);font-weight:800;color:var(--ink);
+  font-size:clamp(1.22rem,2vw,1.46rem);line-height:1.25;letter-spacing:-.012em;margin:0 0 1rem;
+}
+.legal__section p{margin:0 0 1rem;color:var(--body-ink)}
+.legal__section p:last-child{margin-bottom:0}
+.legal__section strong{color:var(--ink);font-weight:700}
+.legal__section em{font-style:italic;color:var(--ink)}
+
+.legal__list{margin:0 0 1rem;padding-left:1.35em;color:var(--body-ink)}
+.legal__list li{margin:0 0 .55rem}
+.legal__list li::marker{color:var(--red)}
+
+/* ---------- tabela ---------- */
+.legal__table{width:100%;border-collapse:collapse;margin:.3rem 0 1.2rem;font-size:.95rem}
+.legal__table th,.legal__table td{text-align:left;padding:.72em .9em;border-bottom:1px solid var(--line);vertical-align:top}
+.legal__table thead th{font-family:var(--font-ui);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--light);border-bottom:1px solid var(--line)}
+.legal__table tbody td{color:var(--body-ink)}
+.legal__table tbody tr:last-child td{border-bottom:0}
+
+/* ---------- nota / callout ---------- */
+.legal__note{
+  margin:.1rem 0 1rem;padding:.85rem 1.15rem;
+  background:var(--light);border-left:3px solid var(--red);border-radius:0 10px 10px 0;
+  font-size:.95rem;color:#4A5161;
+}
+.legal__note strong{color:var(--ink)}
+
+/* ---------- rodapé ---------- */
+.lfoot{margin-top:clamp(56px,9vw,108px);border-top:1px solid var(--line)}
+.lfoot__inner{
+  max-width:var(--read);margin-inline:auto;
+  padding:32px clamp(20px,5vw,32px);
+  display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;justify-content:space-between;
+}
+.lfoot__mark{
+  display:block;height:19px;width:70px;background:var(--red);
+  -webkit-mask:url(../assets/img/wordmark.svg) no-repeat left center/contain;
+  mask:url(../assets/img/wordmark.svg) no-repeat left center/contain;
+}
+.lfoot__links{display:flex;flex-wrap:wrap;gap:16px 22px;font-family:var(--font-ui);font-size:.9rem}
+.lfoot__links a{color:var(--muted);transition:color .2s var(--ease)}
+.lfoot__links a:hover{color:var(--red)}
+.lfoot__copy{font-family:var(--font-ui);font-size:.85rem;color:var(--muted);margin:0;width:100%}
+
+@media (max-width:600px){
+  .legal__toc ol{columns:1}
+  .lfoot__inner{gap:14px}
+}
