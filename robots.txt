@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://selloapp.com.br/sitemap.xml
