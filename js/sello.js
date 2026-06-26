@@ -390,4 +390,21 @@
       btn.addEventListener('click', function(e){ e.preventDefault(); open(); });
     });
   })();
+
+  /* ---------- âncoras internas: scroll suave mantendo a URL limpa (sem #hash) ---------- */
+  (function(){
+    // estes abrem o modal / têm handler próprio — não interceptar
+    var SKIP = '.btn--app,[data-cta="download"],[data-store]';
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || a.matches(SKIP)) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id ? document.getElementById(id) : null;
+      e.preventDefault();                                  // sem pulo nativo nem #hash na barra
+      if (id === 'top') scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });   // logo → topo
+      else if (target) target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      // href="#" sem destino (links de rodapé ainda sem página): só previne o pulo, não rola
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    });
+  })();
 })();
