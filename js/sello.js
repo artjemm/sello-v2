@@ -143,10 +143,10 @@
       {q:'Sempre esquecia as indicações que recebia. Agora salvo tudo no Sello.', n:'Letícia M.'}
     ],
     '2':[
-      {q:'Virou meu lugar favorito para organizar restaurantes.', n:'Fernanda, São Paulo'},
-      {q:'É como ter um amigo que sempre sabe onde comer.', n:'Guilherme, São Paulo'},
-      {q:'Descobri vários cafés incríveis que nunca apareceriam para mim no Instagram.', n:'Camila, São Paulo'},
-      {q:'Gostei porque não parece um aplicativo de avaliação tradicional.', n:'André, São Paulo'}
+      {q:'Virou meu lugar favorito para organizar restaurantes.', n:'Fernanda'},
+      {q:'É como ter um amigo que sempre sabe onde comer.', n:'Guilherme'},
+      {q:'Descobri vários cafés incríveis que nunca apareceriam para mim no Instagram.', n:'Camila'},
+      {q:'Gostei porque não parece um aplicativo de avaliação tradicional.', n:'André'}
     ]
   };
   function rcard(d){ return '<article class="rcard"><div class="rcard__stars">'+star+star+star+star+star+'</div><p class="rcard__quote">"'+d.q+'"</p><div class="rcard__by">'+d.n+'</div></article>'; }
