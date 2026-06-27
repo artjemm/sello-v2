@@ -193,6 +193,8 @@ h1,h2,h3,h4{margin:0}
 .dcard__eye{display:block;font-family:var(--font-disp);font-weight:400;color:var(--red);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem}
 .dcard__title{font-family:var(--font-body);font-weight:700;color:var(--ink);font-size:1.25rem;line-height:1.3;letter-spacing:-.01em;margin:0 0 .5rem;max-width:92%}
 .dcard__sub{font-family:var(--font-ui);font-weight:400;color:var(--muted);font-size:clamp(.95rem,1.05vw,1.06rem);line-height:1.45;margin:0;max-width:88%}
+.dcard--red{background:var(--red)}
+.dcard--red .dcard__eye,.dcard--red .dcard__title,.dcard--red .dcard__sub{color:#fff}
 .dcard__eye,.dcard__title,.dcard__sub{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .dcard.is-in .dcard__eye{opacity:1;transform:none;transition-delay:.12s}
 .dcard.is-in .dcard__title{opacity:1;transform:none;transition-delay:.24s}
