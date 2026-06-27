@@ -151,7 +151,7 @@ h1,h2,h3,h4{margin:0}
 .statc__n .roll-x{display:inline-block;vertical-align:bottom}
 @media (prefers-reduced-motion:reduce){.statc__n .roll__s{transition:none}}
 @media (max-width:760px){
-  .statc--wide{flex-direction:column;align-items:stretch;min-height:0;gap:22px}
+  .statc--wide{flex-direction:column;align-items:stretch;min-height:0;gap:22px;padding-bottom:40px}  /* Anton SC line-height:1 glued the number to the bottom on mobile */
   .statc--wide .statc__head{align-self:auto}
   .statc--wide .statc__n{align-self:flex-start}
   .stats__row{flex-direction:column}
@@ -297,6 +297,7 @@ h1,h2,h3,h4{margin:0}
   .dgrid{flex-direction:column;gap:20px;align-items:stretch}
   .dcol{gap:20px}
   .dcol--offset{margin-top:0}
+  .lphone--avalie{top:-30%!important}  /* mobile: lift mockup so it clears the bottom text */
   .steps .display{text-align:center}
   /* No mobile os cards ficam full-width e altos. Nos cards de texto-em-cima
      (Explore/Compartilhe/Comunidade) o texto e o celular entram em FLUXO, com
