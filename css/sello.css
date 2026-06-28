@@ -67,6 +67,14 @@ h1,h2,h3,h4{margin:0}
 [data-reveal].is-in{opacity:1;transform:none}
 [data-reveal].r-soft{transform:translateY(26px) scale(.965);transition:opacity .95s var(--ease),transform .95s var(--ease)}
 @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1!important;transform:none!important;transition:none}}
+/* Anton SC headings — GSAP-SplitText word-rise replicated in vanilla:
+   each word slides up from translateY(110%) behind its own line-height clip, staggered (JS sets per-word delay). power2.out = ease-out-cubic. */
+[data-split]{opacity:0}
+[data-split].split-ready{opacity:1}
+.w-mask{display:inline-block;overflow:hidden;vertical-align:top}
+.w-in{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.33,1,.68,1)}
+[data-split].is-in .w-in{transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){[data-split]{opacity:1!important}.w-in{transform:none!important;transition:none!important}}
 
 /* ===================== NAV ===================== */
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:16px var(--pad);transition:padding .3s var(--ease)}

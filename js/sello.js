@@ -95,6 +95,37 @@
   function reveal(el){ if(!io){ el.classList.add('is-in'); } else { io.observe(el); } }
   [].forEach.call(document.querySelectorAll('[data-reveal]'), reveal);
 
+  /* ---------- Anton SC headings: word-rise (GSAP SplitText, vanilla) ----------
+     Wrap every word in <span.w-mask><span.w-in>; words sit at translateY(110%) (hidden behind
+     their own clip) and rise to 0 staggered 40ms, via the shared reveal observer. Recurses into
+     child elements (e.g. .accent, .line) and preserves <br> so nested markup keeps its styling. */
+  function splitFrag(node){
+    var frag = document.createDocumentFragment();
+    [].forEach.call(node.childNodes, function(ch){
+      if (ch.nodeType === 3){
+        ch.nodeValue.split(/(\s+)/).forEach(function(tok){
+          if (tok === '') return;
+          if (/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(' ')); return; }
+          var m = document.createElement('span'); m.className = 'w-mask';
+          var w = document.createElement('span'); w.className = 'w-in'; w.textContent = tok;
+          m.appendChild(w); frag.appendChild(m);
+        });
+      } else if (ch.nodeType === 1){
+        if (ch.tagName === 'BR'){ frag.appendChild(ch.cloneNode(false)); }
+        else { var el = ch.cloneNode(false); el.appendChild(splitFrag(ch)); frag.appendChild(el); }
+      }
+    });
+    return frag;
+  }
+  [].forEach.call(document.querySelectorAll('[data-split]'), function(h){
+    var f = splitFrag(h);
+    while (h.firstChild) h.removeChild(h.firstChild);
+    h.appendChild(f);
+    [].forEach.call(h.querySelectorAll('.w-in'), function(w,i){ w.style.transitionDelay = (i*0.04) + 's'; });
+    h.classList.add('split-ready');
+    reveal(h); // shared IO adds .is-in on scroll-in (or instantly when reduced-motion/no-IO)
+  });
+
   /* ---------- live phones: hover-scroll distance (exact to screen bottom) ---------- */
   function setScrollVars(){
     [].forEach.call(document.querySelectorAll('.lphone'), function(ph){
