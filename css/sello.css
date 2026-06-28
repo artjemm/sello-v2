@@ -151,9 +151,9 @@ h1,h2,h3,h4{margin:0}
 .statc__n .roll-x{display:inline-block;vertical-align:bottom}
 @media (prefers-reduced-motion:reduce){.statc__n .roll__s{transition:none}}
 @media (max-width:760px){
-  .statc--wide{flex-direction:column;align-items:stretch;min-height:0;gap:22px;padding-bottom:40px}  /* Anton SC line-height:1 glued the number to the bottom on mobile */
-  .statc--wide .statc__head{align-self:auto}
-  .statc--wide .statc__n{align-self:flex-start}
+  .statc--wide{flex-direction:row;align-items:center;justify-content:space-between;gap:16px}
+  .statc--wide .statc__head{align-self:center}
+  .statc--wide .statc__n{align-self:center}
   .stats__row{flex-direction:column}
   .stats__grid--duo{flex-direction:column}
   .stats__row>.statc{flex:0 0 auto;min-height:clamp(150px,40vw,180px)}
@@ -533,7 +533,7 @@ h1,h2,h3,h4{margin:0}
   .fc__qr{margin-left:0;align-items:flex-start}
 }
 /* ===== INTRO (Figma 2009:966) — first section + floating mascot ===== */
-.intro{padding:clamp(48px,7vw,96px) 0 clamp(56px,7vw,104px)}
+.intro{padding-block:clamp(56px,7.5vw,108px)}
 .intro__top{display:flex;align-items:center;justify-content:space-between;gap:clamp(28px,5vw,80px)}
 .intro__txt{max-width:680px;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)}
 .intro__txt>*{margin:0}
@@ -562,7 +562,6 @@ h1,h2,h3,h4{margin:0}
 @keyframes sfTwinkle{0%,100%{opacity:0;transform:scale(.5)}45%,55%{opacity:1;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.sf-char,.sf-shadow,.sf-star{animation:none}.sf-star{opacity:1}}
 @media (max-width:760px){
-  .intro{padding-top:clamp(28px,8vw,48px)}
   .intro__top{flex-direction:column-reverse;align-items:flex-start;gap:20px}
   .intro__art{width:clamp(130px,38vw,180px);align-self:center}
   .intro__cards{grid-template-columns:1fr;gap:14px}
