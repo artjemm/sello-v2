@@ -533,7 +533,7 @@ h1,h2,h3,h4{margin:0}
   .fc__qr{margin-left:0;align-items:flex-start}
 }
 /* ===== INTRO (Figma 2009:966) — first section + floating mascot ===== */
-.intro{padding-block:clamp(56px,7.5vw,108px)}
+.intro{padding-block:clamp(100px,10.5vw,152px) clamp(56px,7.5vw,108px)}/* top>bottom: .sheet__seal overlaps 36px into the intro, so add seal clearance on top; bottom stays = .section */
 .intro__top{display:flex;align-items:center;justify-content:space-between;gap:clamp(28px,5vw,80px)}
 .intro__txt{max-width:680px;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)}
 .intro__txt>*{margin:0}
