@@ -322,14 +322,16 @@ h1,h2,h3,h4{margin:0}
   .dgrid::-webkit-scrollbar{display:none}
   .dcol{display:contents}              /* achata as colunas → 4 cards viram itens diretos do carrossel */
   .dcol--offset{margin-top:0}
-  .dcard{flex:0 0 82%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:auto}
-  /* texto-em-cima (Explore/Compartilhe/Comunidade): texto no topo + celular INTEIRO
-     logo abaixo (NÃO sangra na borda); sobra fundo do card embaixo → os cantos de
-     baixo ficam ARREDONDADOS de verdade */
-  .dcard:not(.dcard--avalie){display:flex;flex-direction:column;padding-bottom:24px}
-  .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0;margin-bottom:14px;flex:0 0 auto}
+  .dcard{flex:0 0 82%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:clamp(452px,120vw,486px)}
+  /* os cards cinza somem no .sheet branco -> hairline desenha o arredondado.
+     Os vermelhos já têm contraste, não levam borda. */
+  .dcard:not(.dcard--red){border:1px solid rgba(13,17,27,.10)}
+  /* texto-em-cima (Explore/Compartilhe/Comunidade): texto no topo + celular GRANDE
+     logo abaixo, cortado pela borda de baixo (a borda arredondada fica visível) */
+  .dcard:not(.dcard--avalie){display:flex;flex-direction:column}
+  .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0;margin-bottom:16px;flex:0 0 auto}
   .dcard .lphone--scroll,
-  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:0 auto;width:44%}
+  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:0 auto;width:66%}
   /* Avalie (texto embaixo, mockup absoluto) */
   .lphone--avalie{top:-16%!important;width:50%;left:25%}
 }
