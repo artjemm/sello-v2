@@ -310,20 +310,23 @@ h1,h2,h3,h4{margin:0}
 .nota__thumb{position:absolute;top:50%;width:6.4cqw;height:6.4cqw;border-radius:50%;background:#fff;border:1.8cqw solid var(--red);transform:translate(-50%,-50%);left:calc(var(--p,.85)*100%);box-shadow:0 1cqw 3cqw rgba(227,15,47,.35)}
 .nota__btn{width:84cqw;padding:4.6cqw 0;border-radius:7cqw;background:var(--red);color:#fff;font-size:5.6cqw;font-weight:700}
 @media (max-width:760px){
-  .dgrid{flex-direction:column;gap:20px;align-items:stretch}
-  .dcol{gap:20px}
-  .dcol--offset{margin-top:0}
-  .lphone--avalie{top:-30%!important}  /* mobile: lift mockup so it clears the bottom text */
   .steps .display{text-align:center}
-  /* No mobile os cards ficam full-width e altos. Nos cards de texto-em-cima
-     (Explore/Compartilhe/Comunidade) o texto e o celular entram em FLUXO, com
-     40px exatos entre o texto e o topo do celular — independente do nº de linhas.
-     O card recorta a parte de baixo do celular (peek). Avalie (texto embaixo)
-     fica intacto. */
+  /* CARROSSEL horizontal no mobile: .dgrid vira uma fileira que desliza (reduz a
+     altura da página); o próximo card "espia" na borda. Cada card = texto em cima
+     (em fluxo) + celular embaixo recortado pela borda do card — sem sobreposição. */
+  .dgrid{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:clamp(28px,7vw,40px);
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);
+    scrollbar-width:none}
+  .dgrid::-webkit-scrollbar{display:none}
+  .dcol{display:contents}              /* achata as colunas → 4 cards viram itens diretos do carrossel */
+  .dcol--offset{margin-top:0}
+  .dcard{flex:0 0 80%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:clamp(440px,120vw,500px)}
+  .lphone--avalie{top:-26%!important}  /* texto embaixo: ergue o mockup */
   .dcard:not(.dcard--avalie){display:flex;flex-direction:column}
   .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0}
   .dcard .lphone--scroll,
-  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:40px auto 0;width:48%}
+  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:28px auto 0;width:62%}
 }
 .b-listas__seal{width:clamp(34px,3vw,48px);height:auto;margin-bottom:12px;filter:brightness(0) invert(1)}
 
@@ -606,7 +609,13 @@ h1,h2,h3,h4{margin:0}
 @media (max-width:760px){
   .recipe__top{flex-direction:column-reverse;align-items:flex-start;gap:18px}
   .recipe__art{align-self:center;width:clamp(130px,40vw,176px)}
-  .recipe__cols{grid-template-columns:1fr;gap:16px}
+  /* CARROSSEL horizontal no mobile (reduz a altura da página; o próximo card espia na borda) */
+  .recipe__cols{display:flex;grid-template-columns:none;gap:14px;margin-top:clamp(28px,7vw,40px);
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);
+    scrollbar-width:none}
+  .recipe__cols::-webkit-scrollbar{display:none}
+  .ing{flex:0 0 80%;scroll-snap-align:start}
 }
 
 /* ===== STATS (Uma curadoria que cresce — Figma 2028:1752) ===== */
