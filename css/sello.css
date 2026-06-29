@@ -311,22 +311,25 @@ h1,h2,h3,h4{margin:0}
 .nota__btn{width:84cqw;padding:4.6cqw 0;border-radius:7cqw;background:var(--red);color:#fff;font-size:5.6cqw;font-weight:700}
 @media (max-width:760px){
   .steps .display{text-align:center}
-  /* CARROSSEL horizontal no mobile: .dgrid vira uma fileira que desliza (reduz a
-     altura da página); o próximo card "espia" na borda. Cada card = texto em cima
-     (em fluxo) + celular embaixo recortado pela borda do card — sem sobreposição. */
+  /* CARROSSEL horizontal no mobile: .dgrid vira fileira deslizante; o próximo card
+     "espia" na borda. overflow-y:hidden mata o swipe vertical. Altura AUTOMÁTICA:
+     o card cresce p/ caber o celular INTEIRO (sem corte); stretch deixa todos na
+     altura do mais alto; o celular ancora no fundo do card. */
   .dgrid{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:clamp(28px,7vw,40px);
-    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
     margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);
     scrollbar-width:none}
   .dgrid::-webkit-scrollbar{display:none}
   .dcol{display:contents}              /* achata as colunas → 4 cards viram itens diretos do carrossel */
   .dcol--offset{margin-top:0}
-  .dcard{flex:0 0 80%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:clamp(440px,120vw,500px)}
-  .lphone--avalie{top:-26%!important}  /* texto embaixo: ergue o mockup */
+  .dcard{flex:0 0 82%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:auto}
+  /* texto-em-cima (Explore/Compartilhe/Comunidade): texto no topo, celular inteiro ancorado embaixo */
   .dcard:not(.dcard--avalie){display:flex;flex-direction:column}
-  .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0}
+  .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0;margin-bottom:22px;flex:0 0 auto}
   .dcard .lphone--scroll,
-  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:28px auto 0;width:62%}
+  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:auto auto 0;width:58%}
+  /* Avalie (texto embaixo, mockup absoluto) acompanha a altura via stretch */
+  .lphone--avalie{top:-14%!important;width:50%;left:25%}
 }
 .b-listas__seal{width:clamp(34px,3vw,48px);height:auto;margin-bottom:12px;filter:brightness(0) invert(1)}
 
@@ -590,7 +593,7 @@ h1,h2,h3,h4{margin:0}
 .ing__t{font-family:var(--font-disp);font-weight:400;text-transform:uppercase;font-size:clamp(1.2rem,1.5vw,1.5rem);letter-spacing:.02em;color:var(--red);margin:0 0 clamp(10px,1vw,14px)}
 .ing__lead{font-family:var(--font-body);font-weight:700;font-size:clamp(1rem,1.1vw,1.18rem);line-height:1.3;color:var(--ink);margin:0 0 10px}
 .ing__body{font-family:var(--font-body);font-weight:400;font-size:clamp(.92rem,1vw,1.04rem);line-height:1.5;color:var(--muted);margin:0}
-.recipe__ai{background:var(--red);border-radius:24px;color:#fff;padding:clamp(28px,3vw,48px);margin-top:16px}
+.recipe__ai{background:var(--red);border-radius:24px;color:#fff;padding:clamp(28px,3vw,48px);grid-column:1/-1;margin-top:0}
 .recipe__ai-t{display:flex;align-items:center;gap:12px;font-family:var(--font-disp);font-weight:400;text-transform:uppercase;font-size:clamp(1.2rem,1.5vw,1.5rem);letter-spacing:.02em;margin:0 0 clamp(10px,1.1vw,16px)}
 .recipe__ai-ic{display:inline-flex}
 .recipe__ai-ic svg{width:28px;height:28px}
@@ -609,13 +612,14 @@ h1,h2,h3,h4{margin:0}
 @media (max-width:760px){
   .recipe__top{flex-direction:column-reverse;align-items:flex-start;gap:18px}
   .recipe__art{align-self:center;width:clamp(130px,40vw,176px)}
-  /* CARROSSEL horizontal no mobile (reduz a altura da página; o próximo card espia na borda) */
+  /* CARROSSEL horizontal no mobile (o card vermelho Inteligência Sello entra junto) */
   .recipe__cols{display:flex;grid-template-columns:none;gap:14px;margin-top:clamp(28px,7vw,40px);
-    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
     margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);
     scrollbar-width:none}
   .recipe__cols::-webkit-scrollbar{display:none}
-  .ing{flex:0 0 80%;scroll-snap-align:start}
+  .recipe__cols>*{flex:0 0 80%;scroll-snap-align:start}
+  .recipe__ai{margin-top:0}
 }
 
 /* ===== STATS (Uma curadoria que cresce — Figma 2028:1752) ===== */
@@ -630,12 +634,12 @@ h1,h2,h3,h4{margin:0}
 .stats__img{position:absolute;z-index:1;left:0;top:calc(clamp(56px,7.5vw,108px) + clamp(36px,4vw,60px) + 2.8 * clamp(1.7rem,3vw,2.8rem));bottom:clamp(40px,7vw,104px);width:clamp(300px,55%,960px);border-radius:0 22px 22px 0;overflow:hidden;display:block}
 .stats__img img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:860px){
-  .stats__row{grid-template-columns:1fr;gap:clamp(24px,5vw,40px);padding-bottom:clamp(240px,46vw,340px);transform:none}
+  .stats__row{grid-template-columns:1fr;gap:clamp(24px,5vw,40px);padding-bottom:clamp(44px,8vw,72px);transform:none}
   .stats__title{max-width:none}
   .stats__nums{text-align:left;flex-direction:column;gap:24px}
   .snum__n{font-size:clamp(3.4rem,16vw,5.5rem)}
   .stats__card{left:0;bottom:clamp(40px,4.5vw,68px)}
-  .stats__img{top:auto;bottom:0;width:min(86%,440px);aspect-ratio:1057/686}
+  .stats__img{display:none}   /* foto do casal escondida no mobile p/ encurtar a section */
 }
 
 /* ===== FAQ (dark, 2-col + foto — Figma 2028:1752) ===== */
@@ -650,7 +654,7 @@ h1,h2,h3,h4{margin:0}
 .faq__a p{color:rgba(255,255,255,.66);max-width:none;padding-inline:2px;font-size:1.02rem}
 .faq__media{align-self:start;margin-top:calc(-1 * clamp(72px,11vw,150px));position:relative;z-index:5}
 .faq__media img{width:calc(100% + var(--pad) + max(0px,(100vw - var(--wrap))/2));max-width:none;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - var(--wrap))/2)));aspect-ratio:769/767;object-fit:cover;border-radius:24px 0 0 24px;display:block}
-@media (max-width:860px){.faq__inner{grid-template-columns:1fr;gap:clamp(24px,5vw,38px)}.faq__media{order:-1;margin-top:0}.faq__media img{width:100%;margin-right:0;border-radius:24px}.faq__title{max-width:none}}
+@media (max-width:860px){.faq__inner{grid-template-columns:1fr;gap:clamp(24px,5vw,38px)}.faq__media{display:none}.faq__title{max-width:none}}
 
 /* ===== REVIEWS (dark cards — Figma 2028:1752) ===== */
 .reviews{background:#1E1E1E}
