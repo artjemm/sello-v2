@@ -330,6 +330,9 @@ h1,h2,h3,h4{margin:0}
   .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0;margin-bottom:16px;flex:0 0 auto}
   .dcard .lphone--scroll,
   .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:0 auto;width:55%}
+  /* fade na base: o celular DISSOLVE no fundo do card (sem linha de corte dura) */
+  .dcard:not(.dcard--avalie)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(96px,26vw,128px);z-index:4;pointer-events:none;background:linear-gradient(to bottom,rgba(243,243,243,0) 0%,#F3F3F3 86%)}
+  .dcard--red:not(.dcard--avalie)::after{background:linear-gradient(to bottom,rgba(227,15,47,0) 0%,#E30F2F 86%)}
   /* Avalie (texto embaixo, mockup absoluto) */
   .lphone--avalie{top:-16%!important;width:50%;left:25%}
 }
