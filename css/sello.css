@@ -322,16 +322,20 @@ h1,h2,h3,h4{margin:0}
   .dgrid::-webkit-scrollbar{display:none}
   .dcol{display:contents}              /* achata as colunas → 4 cards viram itens diretos do carrossel */
   .dcol--offset{margin-top:0}
-  .dcard{flex:0 0 82%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:clamp(452px,120vw,486px)}
-  /* os cards cinza somem no .sheet branco -> hairline desenha o arredondado.
-     Os vermelhos já têm contraste, não levam borda. */
-  .dcard:not(.dcard--red){border:1px solid rgba(13,17,27,.10)}
+  /* clip-path: recorta no paint e SEGURA o celular (que tem transform na animação)
+     no contorno arredondado — o overflow:hidden+border-radius do Safari deixa o
+     celular vazar quadrado e tapar os cantos de baixo (bug do WebKit) */
+  .dcard{flex:0 0 82%;scroll-snap-align:start;margin-top:0;aspect-ratio:auto;height:clamp(452px,120vw,486px);clip-path:inset(0 round 26px)}
   /* texto-em-cima (Explore/Compartilhe/Comunidade): texto no topo + celular GRANDE
-     logo abaixo, cortado pela borda de baixo (a borda arredondada fica visível) */
+     logo abaixo, cortado pela borda de baixo */
   .dcard:not(.dcard--avalie){display:flex;flex-direction:column}
   .dcard:not(.dcard--avalie) .dcard__txt{position:static;padding:24px 7% 0;margin-bottom:16px;flex:0 0 auto}
   .dcard .lphone--scroll,
-  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:0 auto;width:66%}
+  .dcard .lphone--rank{position:relative;top:auto!important;left:auto;margin:0 auto;width:84%}
+  /* SEM transform nas imagens do celular no mobile: o transform (pan/rank) cria um
+     layer composto que o Safari NÃO recorta no card -> vazava quadrado e tapava a
+     borda de baixo. Estático, o overflow:hidden/clip-path recorta normal. */
+  .dcard .lphone__img,.dcard .rkf{transform:none!important;transition:none!important}
   /* Avalie (texto embaixo, mockup absoluto) */
   .lphone--avalie{top:-16%!important;width:50%;left:25%}
 }
