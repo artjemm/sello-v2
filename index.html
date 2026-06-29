@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Inter:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/sello.css?v=80" />
+  <link rel="stylesheet" href="css/sello.css?v=81" />
 </head>
 <body>
 
@@ -50,8 +50,9 @@
     <nav class="nav__menu" aria-label="Principal">
       <a href="#como-funciona">Como funciona</a>
       <a href="#recursos">Recursos</a>
+      <a href="#manifesto">Manifesto Sello</a>
     </nav>
-    <a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR APP</span></a>
+    <a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR O APP</span></a>
   </div>
 </header>
 
@@ -64,71 +65,42 @@
   <div class="hero__media"><img src="assets/img/hero.jpg" alt="" /></div>
   <div class="hero__scrim"></div>
   <div class="hero__content wrap">
-    <h1 class="hero__title">
-      <span class="line accent" data-reveal>Colecione experiências,</span>
-      <span class="line" data-reveal data-delay="1">não só restaurantes</span>
-    </h1>
-    <p class="hero__sub" data-reveal data-delay="2">Salve descobertas, compartilhe momentos e construa seu mapa gastronômico.</p>
-    <div class="hero__cta" data-reveal data-delay="3">
-      <a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR APP</span></a>
+    <h1 class="hero__title" data-split>Escolher um restaurante não deveria <span class="accent">depender da sorte.</span></h1>
+    <p class="hero__sub" data-reveal data-delay="1">O Sello reúne curadoria editorial, inteligência artificial e experiências reais para ajudar você a descobrir lugares em que vale a pena estar.</p>
+    <div class="hero__cta" data-reveal data-delay="2">
+      <a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR O APP</span></a>
+      <p class="hero__join">Junte-se à comunidade que transforma boas recomendações em grandes descobertas.</p>
     </div>
   </div>
+  <img src="assets/img/seal.svg" alt="" class="hero__seal" aria-hidden="true" />
 </section>
 
 <!-- ===================== WHITE SHEET ===================== -->
 <div class="sheet">
-  <img src="assets/img/seal.svg" alt="" class="sheet__seal" aria-hidden="true" />
 
-<!-- ===================== INTRO (Figma 2009:966) ===================== -->
-<section class="intro wrap" id="intro">
-  <div class="intro__top">
-    <div class="intro__txt">
-      <span class="intro__tag" data-reveal>Mais que um app</span>
-      <h2 class="display" data-reveal data-delay="1">Onde boas recomendações<br />encontram <span class="accent">boas histórias.</span></h2>
-      <p class="muted" data-reveal data-delay="2">O Sello transforma recomendações espalhadas em experiências inesquecíveis. Descubra restaurantes através de curadoria, comunidade e do contexto certo para cada momento.</p>
-    </div>
-    <div class="intro__art" aria-hidden="true" data-reveal data-delay="1">
-<svg width="288" height="299" viewBox="0 0 288 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group 170">
-<g id="Group 162" class="sf-char">
-<path id="Vector" d="M220.318 28.6607C201.701 20.9418 172.379 56.6498 160.06 65.6488C152.156 56.1499 120.584 10.2502 110.573 14.9414C95.2384 19.3977 97.9245 61.7987 96.2604 76.2588C74.432 77.062 35.4341 69.1044 30.6593 82.425C22.5589 93.7835 56.967 120.549 66.2039 138.722C57.5373 148.293 20.3946 171.474 25.8132 185.847C30.2939 203.568 78.4358 187.691 93.8282 189.02C93.8046 204.861 88.6933 218.524 87.7571 234.33C87.6558 237.55 85.9498 248.329 93.5966 251.07C106.764 258.929 131.023 225.969 145.62 213.222C156.429 223.498 170.974 258.928 191.997 261.53L194.309 260.313C205.972 256.826 200.975 216.481 202.39 201.138C227.013 200.794 253.411 211.057 261.41 197.699C268.123 184.944 233.821 166.867 220.545 150.489C230.704 142.957 272.743 133.243 272.097 111.01L270.989 108.456C262.182 97.0245 224.804 97.9448 211.346 95.5421C213.65 84.3171 239.536 40.7811 220.318 28.6607Z" fill="#E50C2B"/>
-</g>
-<g id="Group 163" class="sf-char">
-<path id="Vector 49" d="M45.5601 137.269L56.0182 177.707L66.588 175.268H74.7186C74.9896 176.352 75.369 178.683 74.7186 179.333C74.0681 179.984 72.2794 182.856 71.4663 184.211L77.1578 186.651L77.9708 189.903L74.7186 193.155L76.3447 193.968L77.9708 198.847L74.7186 204.538L64.1488 209.416L64.7835 211.32C65.816 214.418 68.9847 216.27 72.1902 215.65L110.229 208.287C113.902 207.576 116.219 203.921 115.296 200.296L96.5552 126.722C95.7066 123.39 92.4121 121.294 89.035 121.938L50.6404 129.251C46.9485 129.954 44.6192 133.631 45.5601 137.269Z" fill="#70AEFF"/>
-<circle id="Ellipse 99" cx="4.87047" cy="4.87047" r="4.87047" transform="matrix(-1.00162 0 0 1.00162 90.9751 131.362)" fill="#1E1E1E"/>
-<path id="Vector 40" d="M53.2027 179.46C76.4948 170.218 87.7921 176.913 55.9547 191.29M70.3331 183.914C75.4669 184.941 88.8187 189.731 59.0354 200.001M71.5948 194.781C81.6299 190.758 82.1493 208.347 55.9547 209.244C37.4689 208.217 36.1132 175.053 51.8472 167.137" stroke="#1E1E1E" stroke-width="3.25224" stroke-linecap="round"/>
-</g>
-<path id="Vector_2" class="sf-char" d="M82.0266 152.128C80.5897 151.532 78.3265 154.288 77.3756 154.983C76.7655 154.249 74.3286 150.707 73.5559 151.069C72.3723 151.413 72.5796 154.685 72.4512 155.802C70.7664 155.864 67.7563 155.249 67.3877 156.277C66.7625 157.154 69.4183 159.22 70.1313 160.623C69.4623 161.362 66.5955 163.151 67.0137 164.26C67.3595 165.628 71.0754 164.403 72.2635 164.505C72.2616 165.728 71.8671 166.782 71.7949 168.002C71.7871 168.251 71.6554 169.083 72.2456 169.294C73.2619 169.901 75.1344 167.357 76.2611 166.373C77.0954 167.166 78.218 169.901 79.8407 170.102L80.0191 170.008C80.9194 169.739 80.5337 166.625 80.6428 165.44C82.5434 165.414 84.581 166.206 85.1984 165.175C85.7165 164.19 83.0689 162.795 82.0442 161.531C82.8283 160.95 86.0731 160.2 86.0233 158.484L85.9377 158.287C85.2579 157.404 82.3729 157.475 81.3342 157.29C81.512 156.424 83.51 153.063 82.0266 152.128Z" fill="#1E1E1E"/>
-<ellipse id="Ellipse 102" class="sf-shadow" cx="147.237" cy="292.758" rx="116.508" ry="6.24151" fill="#F0F0F0"/>
-<g id="Group 140" class="sf-char">
-<path id="Vector_3" d="M120.673 130.168C120.067 130.124 119.457 130.165 118.851 130.19C118.082 130.945 117.652 131.815 117.19 132.77C117.638 133.921 118.049 135.124 118.817 136.107C119.721 137.263 120.707 138.539 121.747 139.565C123.03 140.83 124.62 141.943 126.133 142.914C127.2 143.596 128.278 144.393 129.401 144.973C130.353 145.464 131.417 145.794 132.43 146.136C135.303 147.109 137.201 147.617 140.213 147.969C142.759 148.267 146.028 148.143 148.598 147.984C151.733 147.79 155.072 147.58 158.143 146.898C159.353 146.629 160.521 146.166 161.718 145.842C165.764 144.744 167.858 144.021 171.457 141.829C172.511 141.188 173.554 140.582 174.525 139.817C175.478 139.035 176.548 138.393 177.257 137.361C177.289 136.602 177.364 135.705 177.018 135.005C176.491 133.939 175.155 133.686 174.12 133.362C172.611 134.187 171.41 135.554 169.956 136.495C169.025 137.097 167.872 137.443 166.863 137.909C165.901 138.354 164.971 138.876 163.993 139.284C159.853 141.009 155.382 141.93 150.918 142.273C150.046 142.34 149.171 142.276 148.301 142.333C147.383 142.393 146.474 142.606 145.554 142.678C143.671 142.825 141.323 142.532 139.477 142.131C134.664 141.083 131.701 140.205 127.757 137.215C126.981 136.627 126.092 136.034 125.431 135.318C124.496 134.305 123.771 133.117 123.024 131.966C122.411 131.019 121.943 130.433 120.809 130.196L120.673 130.168Z" fill="#1E1E1E"/>
-<path id="Vector_4" d="M132.268 103.181C131.945 103.16 131.62 103.152 131.304 103.227C130.473 103.424 129.74 103.902 129.298 104.637C128.278 106.339 127.258 113.872 127.21 116.066C127.176 117.667 127.351 119.711 127.753 121.257C128.186 122.929 129.672 126.466 131.179 127.304C132.369 127.967 135.112 128.676 136.416 128.288C139.754 127.294 142.156 123.311 143.449 120.288C144.135 118.688 144.569 117.146 145.417 115.597C145.964 113.484 146.723 111.561 146.663 109.345C146.034 108.546 145.254 107.941 144.262 107.664C143.62 107.485 142.913 107.48 142.327 107.838C141.062 108.612 140.998 111.057 140.61 112.371C140.145 113.944 136.661 121.978 135.422 122.54C135.101 122.685 134.702 122.589 134.398 122.444C131.722 121.165 133.391 111.897 133.884 109.414C134.085 108.398 134.507 107.302 134.588 106.277C134.615 105.927 134.517 105.53 134.4 105.201C134.04 104.187 133.204 103.614 132.268 103.181Z" fill="#1E1E1E"/>
-<path id="Vector_5" d="M155.15 110.637C154.779 110.61 154.392 110.59 154.027 110.679C152.587 111.031 151.514 113.098 150.765 114.238C150.442 114.731 150.163 115.235 149.944 115.782C149.456 117.004 149.165 118.308 148.749 119.556C148.383 120.655 147.783 121.691 147.605 122.846C147.35 124.504 147.376 126.959 147.736 128.601C148.106 130.294 149.331 132.062 150.801 132.963C152.097 133.758 153.66 134.134 155.157 133.753C156.989 133.287 159.533 131.376 160.776 129.961C161.417 129.231 161.919 128.377 162.525 127.617C163.601 126.269 164.587 125.032 165.473 123.544C166.062 122.389 167.232 120.957 167.45 119.684C167.549 119.101 167.415 118.533 167.067 118.058C166.542 117.341 165.674 116.764 164.79 116.629C163.924 116.497 163.002 116.793 162.398 117.438C161.773 118.106 161.558 119.243 161.09 120.036C160.59 120.882 159.901 121.649 159.323 122.448C157.469 125.013 156.426 126.53 153.866 128.459C152.59 125.792 153.271 123.409 154.158 120.761C154.467 119.837 154.749 118.866 155.162 117.983C156.24 115.675 157.338 114.878 157.163 112.111C156.573 111.412 155.974 111.027 155.15 110.637Z" fill="#1E1E1E"/>
-</g>
-<path id="Vector_6" class="sf-star sf-star1" d="M11.993 26.0421C12.2301 26.1333 13.1222 26.616 13.1521 26.8374C13.646 30.5077 14.3676 33.3592 16.0479 36.6816C18.901 37.7456 21.5768 38.4539 24.5021 39.2622C21.6746 40.3187 18.6852 41.3091 15.8232 42.3037C14.6944 45.0832 13.5481 52.3869 12.4548 53.6623C11.0108 51.9938 10.3635 45.9334 9.21978 42.7901L0 39.0989C2.90522 38.1378 6.27484 37.2684 9.2514 36.4287C10.3156 32.735 10.3118 29.7366 11.993 26.0421Z" fill="#E50C2B"/>
-<path id="Vector_7" class="sf-star sf-star2" d="M257.619 0C259.02 1.01007 259.888 7.7524 260.501 10.1057C263.035 11.2209 264.504 10.858 266.924 12.5081L267.03 13.1828C265.7 14.1917 262.072 15.5948 260.165 16.5806C259.783 18.8854 259.214 24.5996 257.38 25.7349C256.472 23.7633 256.151 20.1382 255.287 17.8259C254.078 14.5889 248.149 14.4537 247.4 12.5009C248.562 11.6575 252.648 10.7244 254.546 10.0522C255.584 7.63058 256.852 2.73301 257.619 0Z" fill="#E50C2B"/>
-<path id="Vector_8" class="sf-star sf-star3" d="M278.07 209.645C279.471 210.655 280.339 217.398 280.952 219.751C283.486 220.866 284.955 220.503 287.375 222.153L287.481 222.828C286.151 223.837 282.523 225.24 280.616 226.226C280.234 228.531 279.665 234.245 277.831 235.38C276.923 233.409 276.602 229.784 275.738 227.471C274.529 224.234 268.6 224.099 267.851 222.146C269.013 221.303 273.099 220.37 274.997 219.698C276.035 217.276 277.303 212.378 278.07 209.645Z" fill="#E50C2B"/>
-</g>
-</svg>
-    </div>
-  </div>
-  <div class="intro__cards">
-    <article class="icard" data-reveal>
-      <img class="icard__ic" src="assets/intro/ic-curadoria.svg" alt="" width="60" height="60" loading="lazy" />
-      <h3 class="icard__t">Curadoria que gera confiança</h3>
-      <p class="icard__p">Nem toda recomendação merece seu tempo. Selecionamos lugares pelo que importa: qualidade, experiência e o motivo que faz cada um valer a visita.</p>
-    </article>
-    <article class="icard" data-reveal data-delay="1">
-      <img class="icard__ic" src="assets/intro/ic-tech.svg" alt="" width="60" height="60" loading="lazy" />
-      <h3 class="icard__t">Tecnologia que entende você</h3>
-      <p class="icard__p">O Sello aprende com seus gostos, lugares favoritos e momentos para recomendar experiências que realmente fazem sentido para você.</p>
-    </article>
-    <article class="icard" data-reveal data-delay="2">
-      <img class="icard__ic" src="assets/intro/ic-pessoas.svg" alt="" width="60" height="60" loading="lazy" />
-      <h3 class="icard__t">Descubra através de pessoas</h3>
-      <p class="icard__p">Siga amigos, criadores e apaixonados por gastronomia. Porque as melhores indicações sempre vêm de quem vive a cidade.</p>
-    </article>
-  </div>
+<!-- ===================== DESCOBRIR (problem framing — Figma 2028:1752) ===================== -->
+<section class="discover wrap" id="discover">
+  <h2 class="discover__title" data-split>Descobrir um bom restaurante deveria<br /><span class="accent">ser simples</span></h2>
+  <p class="discover__lead" data-reveal>Mas cada aplicativo tenta te convencer de uma <strong>coisa diferente:</strong></p>
+  <ul class="discover__chips">
+    <li class="chip" data-reveal>
+      <span class="chip__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+      <span>No Instagram, é o <strong>melhor da cidade</strong></span>
+    </li>
+    <li class="chip" data-reveal data-delay="1">
+      <span class="chip__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.35 2.3 1.78 4.05 4 4.45V10c-1.5 0-2.86-.46-4-1.27v6.02a5.75 5.75 0 1 1-5.75-5.75c.32 0 .63.03.93.08v2.66a3.1 3.1 0 1 0 2.17 2.96V3h2.65z"/></svg></span>
+      <span>No TikTok, existe outro mais <strong>&ldquo;imperdível&rdquo;</strong></span>
+    </li>
+    <li class="chip" data-reveal data-delay="1">
+      <span class="chip__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg></span>
+      <span>No Maps, a nota é 4,8 igual a <strong>todos os outros</strong></span>
+    </li>
+    <li class="chip" data-reveal data-delay="2">
+      <span class="chip__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2A9.8 9.8 0 0 0 3.5 17l-1.3 4.8 4.95-1.3A9.8 9.8 0 1 0 12 2.2zm0 1.9a7.9 7.9 0 1 1-4.1 14.65l-.3-.18-2.93.77.78-2.86-.2-.3A7.9 7.9 0 0 1 12 4.1zM8.9 7.9c-.16 0-.42.06-.64.3-.22.24-.86.84-.86 2.05s.88 2.38.99 2.54c.12.16 1.73 2.78 4.27 3.78 2.12.83 2.55.67 3.01.62.46-.04 1.48-.6 1.69-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.46-.28s-1.48-.73-1.7-.81c-.23-.08-.4-.12-.56.12s-.64.8-.79.97c-.14.16-.29.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.45-1.36-1.69-.14-.24-.01-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42z"/></svg></span>
+      <span>No grupo de amigos, <strong>&ldquo;Não curti muito, tenta outro&rdquo;</strong></span>
+    </li>
+  </ul>
+  <p class="discover__foot" data-reveal data-delay="2">No fim, você termina com <strong class="u-red">mais dúvidas</strong> do que quando começou</p>
 </section>
 
   <!-- ---------- DESCOBRIR (grid escalonado) ---------- -->
