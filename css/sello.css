@@ -318,7 +318,7 @@ h1,h2,h3,h4{margin:0}
   .dgrid{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:clamp(28px,7vw,40px);
     overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
     margin-inline:calc(-1*var(--pad));padding-inline:var(--pad);scroll-padding-inline:var(--pad);
-    scrollbar-width:none}
+    padding-bottom:28px;scrollbar-width:none}
   .dgrid::-webkit-scrollbar{display:none}
   .dcol{display:contents}              /* achata as colunas → 4 cards viram itens diretos do carrossel */
   .dcol--offset{margin-top:0}
@@ -660,8 +660,8 @@ h1,h2,h3,h4{margin:0}
 .faq__q{color:#F6F2ED;font-family:var(--font-body);font-size:clamp(1rem,1.2vw,1.18rem);padding:clamp(15px,1.7vw,21px) 2px}
 .faq__q .chev{stroke:rgba(255,255,255,.55)}
 .faq__a p{color:rgba(255,255,255,.66);max-width:none;padding-inline:2px;font-size:1.02rem}
-.faq__media{align-self:start;margin-top:calc(-1 * clamp(72px,11vw,150px));position:relative;z-index:5}
-.faq__media img{width:calc(100% + var(--pad) + max(0px,(100vw - var(--wrap))/2));max-width:none;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - var(--wrap))/2)));aspect-ratio:769/767;object-fit:cover;border-radius:24px 0 0 24px;display:block}
+.faq__media{align-self:stretch;position:relative;z-index:5}
+.faq__media img{width:calc(100% + var(--pad) + max(0px,(100vw - var(--wrap))/2));max-width:none;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - var(--wrap))/2)));margin-top:calc(-1 * clamp(72px,11vw,150px));height:calc(100% + clamp(72px,11vw,150px) + 40px);object-fit:cover;border-radius:24px 0 0 24px;display:block}
 @media (max-width:860px){.faq__inner{grid-template-columns:1fr;gap:clamp(24px,5vw,38px)}.faq__media{display:none}.faq__title{max-width:none}}
 
 /* ===== REVIEWS (dark cards — Figma 2028:1752) ===== */
