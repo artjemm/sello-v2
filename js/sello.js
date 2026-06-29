@@ -3,6 +3,17 @@
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- smooth scroll (Lenis) — a "manteiga" do getquoti/Linear ----------
+     Scroll real (não transform): sticky/fixed, IntersectionObserver e o fade do
+     hero seguem funcionando. Desligado em reduced-motion; toque fica nativo
+     (mobile já tem momentum próprio — evita sensação de lag). */
+  var lenis = null;
+  if (!reduce && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, smoothWheel: true });
+    window.lenis = lenis;
+    (function raf(time){ lenis.raf(time); requestAnimationFrame(raf); })(performance.now());
+  }
+
   /* ---------- scroll: nav state + hero text fade-out (estilo Novu) ---------- */
   var nav = document.getElementById('nav');
   var hero = document.querySelector('.hero');
@@ -395,6 +406,7 @@
       modal.hidden = false;
       requestAnimationFrame(function(){ modal.classList.add('is-open'); });
       document.documentElement.style.overflow = 'hidden';
+      if (lenis) lenis.stop();                               // congela a inércia do scroll atrás do modal
       var x = modal.querySelector('.dlm__x'); if (x) x.focus();
       document.addEventListener('keydown', onKey);
     }
@@ -402,6 +414,7 @@
       modal.classList.remove('is-open');
       document.removeEventListener('keydown', onKey);
       document.documentElement.style.overflow = '';
+      if (lenis) lenis.start();                              // retoma o smooth scroll
       var done = false;
       function hide(){ if (done) return; done = true; modal.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
       card.addEventListener('transitionend', hide, { once: true });
@@ -432,8 +445,8 @@
       var id = a.getAttribute('href').slice(1);
       var target = id ? document.getElementById(id) : null;
       e.preventDefault();                                  // sem pulo nativo nem #hash na barra
-      if (id === 'top') scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });   // logo → topo
-      else if (target) target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (id === 'top') { if (lenis) lenis.scrollTo(0); else scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }   // logo → topo
+      else if (target) { if (lenis) lenis.scrollTo(target); else target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
       // href="#" sem destino (links de rodapé ainda sem página): só previne o pulo, não rola
       if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     });
