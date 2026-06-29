@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Inter:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/sello.css?v=82" />
+  <link rel="stylesheet" href="css/sello.css?v=83" />
 </head>
 <body>
 
@@ -107,13 +107,14 @@
 </section>
 
 <!-- ===================== A RECEITA DO SELLO (Figma 2028:1752) ===================== -->
-<section class="recipe wrap" id="receita">
-  <div class="recipe__top">
-    <div class="recipe__intro">
-      <span class="recipe__eye" data-reveal>A receita do Sello</span>
-      <h2 class="recipe__title" data-reveal data-delay="1">As melhores recomendações são <strong>feitas com mais de um ingrediente</strong></h2>
-    </div>
-    <div class="recipe__art" data-reveal data-delay="1" aria-hidden="true"><svg width="288" height="299" viewBox="0 0 288 299" fill="none" xmlns="http://www.w3.org/2000/svg">
+<section class="recipe" id="receita">
+  <div class="recipe__inner wrap">
+    <div class="recipe__top">
+      <div class="recipe__intro">
+        <span class="recipe__eye" data-reveal>A receita do Sello</span>
+        <h2 class="recipe__title" data-reveal data-delay="1">As melhores recomendações são <strong>feitas com mais de um ingrediente</strong></h2>
+      </div>
+      <div class="recipe__art" data-reveal data-delay="1" aria-hidden="true"><svg width="288" height="299" viewBox="0 0 288 299" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group 170">
 <g id="Group 162" class="sf-char">
 <path id="Vector" d="M220.318 28.6607C201.701 20.9418 172.379 56.6498 160.06 65.6488C152.156 56.1499 120.584 10.2502 110.573 14.9414C95.2384 19.3977 97.9245 61.7987 96.2604 76.2588C74.432 77.062 35.4341 69.1044 30.6593 82.425C22.5589 93.7835 56.967 120.549 66.2039 138.722C57.5373 148.293 20.3946 171.474 25.8132 185.847C30.2939 203.568 78.4358 187.691 93.8282 189.02C93.8046 204.861 88.6933 218.524 87.7571 234.33C87.6558 237.55 85.9498 248.329 93.5966 251.07C106.764 258.929 131.023 225.969 145.62 213.222C156.429 223.498 170.974 258.928 191.997 261.53L194.309 260.313C205.972 256.826 200.975 216.481 202.39 201.138C227.013 200.794 253.411 211.057 261.41 197.699C268.123 184.944 233.821 166.867 220.545 150.489C230.704 142.957 272.743 133.243 272.097 111.01L270.989 108.456C262.182 97.0245 224.804 97.9448 211.346 95.5421C213.65 84.3171 239.536 40.7811 220.318 28.6607Z" fill="#E50C2B"/>
@@ -135,32 +136,33 @@
 <path id="Vector_8" class="sf-star sf-star3" d="M278.07 209.645C279.471 210.655 280.339 217.398 280.952 219.751C283.486 220.866 284.955 220.503 287.375 222.153L287.481 222.828C286.151 223.837 282.523 225.24 280.616 226.226C280.234 228.531 279.665 234.245 277.831 235.38C276.923 233.409 276.602 229.784 275.738 227.471C274.529 224.234 268.6 224.099 267.851 222.146C269.013 221.303 273.099 220.37 274.997 219.698C276.035 217.276 277.303 212.378 278.07 209.645Z" fill="#E50C2B"/>
 </g>
 </svg></div>
-  </div>
-  <p class="recipe__sub" data-reveal>Cada recomendação do Sello nasce da combinação entre diferentes perspectivas. É assim que transformamos milhares de informações em uma <strong>decisão que você pode confiar.</strong></p>
-  <div class="recipe__cols">
+    </div>
+    <p class="recipe__sub" data-reveal>Cada recomendação do Sello nasce da combinação entre diferentes perspectivas. É assim que transformamos milhares de informações em uma <strong>decisão que você pode confiar.</strong></p>
+    <div class="recipe__cols">
     <article class="ing" data-reveal>
-      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 65 66" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M24.8942 2.42037C29.6166 2.18416 33.2653 12.6245 35.2734 15.6547C37.771 14.149 48.3767 6.33706 50.2162 8.20739C53.2499 10.4557 49.3002 19.8162 48.5231 23.2174C53.28 25.1663 62.5222 26.5264 62.5222 29.922C63.412 33.1437 53.6946 36.4039 50.2162 39.761C51.3725 42.6247 57.74 50.8687 55.4056 53.6767C53.0134 57.3168 43.6385 49.8323 40.1341 48.8862C38.8853 52.4665 38.9326 55.9666 37.8881 59.613C37.6556 60.3485 37.1791 62.9215 35.2734 62.9215C31.7435 63.6306 28.9951 54.2209 26.7805 50.1597C23.58 51.6056 17.5635 58.4313 12.7148 57.3168L12.3005 56.8547C10.0009 55.1226 14.298 46.4137 15.2002 42.8334C9.78952 40.7619 3.14738 40.9427 2.43838 37.2776C1.96556 33.8527 10.9719 32.5468 15.2002 29.922C13.5528 27.3979 5.03804 21.7998 6.94058 16.8298L7.38746 16.3425C10.2374 14.4735 18.4189 17.7078 21.5812 18.2548C21.961 15.5326 19.6906 3.60216 24.8942 2.42037Z" stroke="currentColor" stroke-width="4.81974" stroke-linejoin="round"/> </svg></span>
       <h3 class="ing__t">Curadoria</h3>
       <p class="ing__lead">Nem todo restaurante entra no Sello.</p>
       <p class="ing__body">Nossa equipe pesquisa, visita e seleciona lugares que realmente merecem ser recomendados. Preferimos indicar menos restaurantes, mas indicar os certos.</p>
     </article>
     <article class="ing" data-reveal data-delay="1">
-      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M30.0012 12.5C29.0066 12.5 28.0528 12.8951 27.3495 13.5983C26.6462 14.3016 26.2512 15.2554 26.2512 16.25C26.2512 17.2446 26.6462 18.1984 27.3495 18.9017C28.0528 19.6049 29.0066 20 30.0012 20C30.9957 20 31.9495 19.6049 32.6528 18.9017C33.3561 18.1984 33.7512 17.2446 33.7512 16.25C33.7512 15.2554 33.3561 14.3016 32.6528 13.5983C31.9495 12.8951 30.9957 12.5 30.0012 12.5ZM21.2512 16.25C21.2512 15.1009 21.4775 13.9631 21.9172 12.9015C22.3569 11.8399 23.0015 10.8753 23.814 10.0628C24.6265 9.2503 25.5911 8.60578 26.6527 8.16605C27.7143 7.72633 28.8521 7.5 30.0012 7.5C31.1502 7.5 32.288 7.72633 33.3496 8.16605C34.4112 8.60578 35.3758 9.2503 36.1883 10.0628C37.0009 10.8753 37.6454 11.8399 38.0851 12.9015C38.5248 13.9631 38.7512 15.1009 38.7512 16.25C38.7512 18.5706 37.8293 20.7962 36.1883 22.4372C34.5474 24.0781 32.3218 25 30.0012 25C27.6805 25 25.4549 24.0781 23.814 22.4372C22.173 20.7962 21.2512 18.5706 21.2512 16.25ZM12.5012 20C11.8381 20 11.2022 20.2634 10.7334 20.7322C10.2645 21.2011 10.0012 21.837 10.0012 22.5C10.0012 23.163 10.2645 23.7989 10.7334 24.2678C11.2022 24.7366 11.8381 25 12.5012 25C13.1642 25 13.8001 24.7366 14.2689 24.2678C14.7378 23.7989 15.0012 23.163 15.0012 22.5C15.0012 21.837 14.7378 21.2011 14.2689 20.7322C13.8001 20.2634 13.1642 20 12.5012 20ZM5.00115 22.5C5.00115 20.5109 5.79133 18.6032 7.19785 17.1967C8.60438 15.7902 10.512 15 12.5012 15C14.4903 15 16.3979 15.7902 17.8045 17.1967C19.211 18.6032 20.0012 20.5109 20.0012 22.5C20.0012 24.4891 19.211 26.3968 17.8045 27.8033C16.3979 29.2098 14.4903 30 12.5012 30C10.512 30 8.60438 29.2098 7.19785 27.8033C5.79133 26.3968 5.00115 24.4891 5.00115 22.5ZM45.0012 22.5C45.0012 21.837 45.2645 21.2011 45.7334 20.7322C46.2022 20.2634 46.8381 20 47.5012 20C48.1642 20 48.8001 20.2634 49.2689 20.7322C49.7378 21.2011 50.0012 21.837 50.0012 22.5C50.0012 23.163 49.7378 23.7989 49.2689 24.2678C48.8001 24.7366 48.1642 25 47.5012 25C46.8381 25 46.2022 24.7366 45.7334 24.2678C45.2645 23.7989 45.0012 23.163 45.0012 22.5ZM47.5012 15C45.512 15 43.6044 15.7902 42.1978 17.1967C40.7913 18.6032 40.0012 20.5109 40.0012 22.5C40.0012 24.4891 40.7913 26.3968 42.1978 27.8033C43.6044 29.2098 45.512 30 47.5012 30C49.4903 30 51.3979 29.2098 52.8045 27.8033C54.211 26.3968 55.0012 24.4891 55.0012 22.5C55.0012 20.5109 54.211 18.6032 52.8045 17.1967C51.3979 15.7902 49.4903 15 47.5012 15ZM20.0012 36.25C20.0012 32.8 22.8012 30 26.2512 30H33.7512C37.2012 30 40.0012 32.8 40.0012 36.25V42.5C40.0012 45.1522 38.9476 47.6957 37.0722 49.5711C35.1969 51.4464 32.6533 52.5 30.0012 52.5C27.349 52.5 24.8054 51.4464 22.9301 49.5711C21.0547 47.6957 20.0012 45.1522 20.0012 42.5V36.25ZM26.2512 35C25.9196 35 25.6017 35.1317 25.3673 35.3661C25.1328 35.6005 25.0012 35.9185 25.0012 36.25V42.5C25.0012 43.8261 25.5279 45.0979 26.4656 46.0355C27.4033 46.9732 28.6751 47.5 30.0012 47.5C31.3272 47.5 32.599 46.9732 33.5367 46.0355C34.4744 45.0979 35.0012 43.8261 35.0012 42.5V36.25C35.0012 35.9185 34.8695 35.6005 34.635 35.3661C34.4006 35.1317 34.0827 35 33.7512 35H26.2512ZM15.0012 36.25C15.0012 34.805 15.2712 33.425 15.7712 32.16L9.61615 33.81C8.01596 34.2389 6.65154 35.2857 5.82273 36.7201C4.99393 38.1546 4.76856 39.8594 5.19615 41.46L6.16615 45.085C6.50614 46.3537 7.09271 47.5429 7.89237 48.5848C8.69203 49.6268 9.68911 50.501 10.8267 51.1575C11.9642 51.814 13.22 52.24 14.5222 52.4112C15.8244 52.5823 17.1476 52.4953 18.4162 52.155L18.5012 52.13C17.3478 50.7559 16.4502 49.186 15.8512 47.495C14.7463 47.5007 13.6706 47.1402 12.7923 46.4699C11.9139 45.7996 11.2823 44.8572 10.9962 43.79L10.0262 40.165C9.94067 39.8448 9.98588 39.5037 10.1518 39.2167C10.3178 38.9298 10.5909 38.7206 10.9112 38.635L15.0012 37.535V36.25ZM41.5812 52.15L41.5012 52.135C42.6412 50.77 43.5462 49.205 44.1512 47.495C45.2552 47.4995 46.3297 47.1386 47.207 46.4683C48.0844 45.7981 48.7152 44.8564 49.0012 43.79L49.9662 40.165C50.0516 39.8448 50.0064 39.5037 49.8405 39.2167C49.6745 38.9298 49.4014 38.7206 49.0812 38.635L45.0012 37.54V36.25C45.0012 34.805 44.7312 33.43 44.2362 32.16L50.3762 33.81C51.9763 34.2389 53.3408 35.2857 54.1696 36.7201C54.9984 38.1546 55.2237 39.8594 54.7962 41.46L53.8262 45.085C53.4862 46.3537 52.8996 47.5429 52.0999 48.5848C51.3003 49.6268 50.3032 50.501 49.1656 51.1575C48.0281 51.814 46.7723 52.24 45.4701 52.4112C44.1679 52.5823 42.8447 52.4953 41.5761 52.155" fill="currentColor"/> </svg></span>
       <h3 class="ing__t">Comunidade</h3>
       <p class="ing__lead">Quem vive a experiência ajuda a mantê-la atualizada.</p>
       <p class="ing__body">Avaliações e relatos da comunidade mostram como cada restaurante entrega na prática, complementando a nossa visão editorial.</p>
     </article>
     <article class="ing" data-reveal data-delay="2">
-      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+      <span class="ing__ic" aria-hidden="true"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M21.625 50H15C13.625 50 12.4483 49.5108 11.47 48.5325C10.4917 47.5542 10.0017 46.3767 10 45V38.375L5.1875 33.5C4.72917 33 4.375 32.4483 4.125 31.845C3.875 31.2417 3.75 30.6267 3.75 30C3.75 29.3733 3.875 28.7592 4.125 28.1575C4.375 27.5558 4.72917 27.0033 5.1875 26.5L10 21.625V15C10 13.625 10.49 12.4483 11.47 11.47C12.45 10.4917 13.6267 10.0017 15 10H21.625L26.5 5.1875C27 4.72917 27.5525 4.375 28.1575 4.125C28.7625 3.875 29.3767 3.75 30 3.75C30.6233 3.75 31.2383 3.875 31.845 4.125C32.4517 4.375 33.0033 4.72917 33.5 5.1875L38.375 10H45C46.375 10 47.5525 10.49 48.5325 11.47C49.5125 12.45 50.0017 13.6267 50 15V21.625L54.8125 26.5C55.2708 27 55.625 27.5525 55.875 28.1575C56.125 28.7625 56.25 29.3767 56.25 30C56.25 30.6233 56.125 31.2383 55.875 31.845C55.625 32.4517 55.2708 33.0033 54.8125 33.5L50 38.375V45C50 46.375 49.5108 47.5525 48.5325 48.5325C47.5542 49.5125 46.3767 50.0017 45 50H38.375L33.5 54.8125C33 55.2708 32.4483 55.625 31.845 55.875C31.2417 56.125 30.6267 56.25 30 56.25C29.3733 56.25 28.7592 56.125 28.1575 55.875C27.5558 55.625 27.0033 55.2708 26.5 54.8125L21.625 50ZM15 45H21.25V35C20.1667 34.75 19.2708 34.1775 18.5625 33.2825C17.8542 32.3875 17.5 31.3558 17.5 30.1875V21.25C17.5 20.9167 17.625 20.625 17.875 20.375C18.125 20.125 18.4167 20 18.75 20C19.0833 20 19.375 20.125 19.625 20.375C19.875 20.625 20 20.9167 20 21.25V29.4375H21.875V21.25C21.875 20.9167 22 20.625 22.25 20.375C22.5 20.125 22.7917 20 23.125 20C23.4583 20 23.75 20.125 24 20.375C24.25 20.625 24.375 20.9167 24.375 21.25V29.4375H26.25V21.25C26.25 20.9167 26.375 20.625 26.625 20.375C26.875 20.125 27.1667 20 27.5 20C27.8333 20 28.125 20.125 28.375 20.375C28.625 20.625 28.75 20.9167 28.75 21.25V30.1875C28.75 31.3542 28.3958 32.3858 27.6875 33.2825C26.9792 34.1792 26.0833 34.7517 25 35V46.25L30 51.25L35 46.25V37C33.9167 36.375 33.0208 35.3225 32.3125 33.8425C31.6042 32.3625 31.25 30.665 31.25 28.75C31.25 26.3333 31.7917 24.2708 32.875 22.5625C33.9583 20.8542 35.2917 20 36.875 20C38.4167 20 39.74 20.8542 40.845 22.5625C41.95 24.2708 42.5017 26.3333 42.5 28.75C42.5 30.7083 42.1458 32.4275 41.4375 33.9075C40.7292 35.3875 39.8333 36.4183 38.75 37V45H45V36.25L51.25 30L45 23.75V15H36.25L30 8.75L23.75 15H15V23.75L8.75 30L15 36.25V45Z" fill="currentColor"/> </svg></span>
       <h3 class="ing__t">Reconhecimento</h3>
       <p class="ing__lead">Boas recomendações deixam rastros.</p>
       <p class="ing__body">Críticas especializadas, premiações, listas relevantes e o reconhecimento da cena gastronômica ajudam a construir uma visão mais completa sobre cada restaurante.</p>
     </article>
-  </div>
-  <div class="recipe__ai" data-reveal>
-    <h3 class="recipe__ai-t"><span class="recipe__ai-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span>Inteligência Sello</h3>
-    <p class="recipe__ai-lead">A tecnologia que transforma informação em confiança.</p>
-    <p class="recipe__ai-body">Nossa IA analisa avaliações, críticas especializadas, listas, premiações e a experiência da comunidade para construir uma visão muito mais completa sobre cada restaurante.</p>
+    </div>
+    <div class="recipe__ai" data-reveal>
+      <h3 class="recipe__ai-t"><span class="recipe__ai-ic" aria-hidden="true"><svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M30.0008 27.57V44.5842C29.9963 46.1558 29.6745 47.7103 29.0547 49.1545C28.4349 50.5987 27.5299 51.9029 26.3939 52.9889C25.2579 54.0749 23.9143 54.9204 22.4437 55.4746C20.9731 56.0289 19.4057 56.2805 17.8355 56.2144C16.2653 56.1483 14.7246 55.7658 13.3058 55.0899C11.887 54.414 10.6193 53.4586 9.57858 52.2809C8.5379 51.1033 7.74572 49.7276 7.24951 48.2364C6.7533 46.7452 6.56328 45.1692 6.69085 43.6028C4.26085 40.9928 2.72656 35.8885 2.72656 31.6285C2.72656 25.8257 5.57656 20.1814 9.65656 17.9571C9.43552 15.9302 9.82698 13.8836 10.7804 12.0814C11.7339 10.2792 13.2056 8.80406 15.0055 7.8464C16.8055 6.88875 18.8512 6.49251 20.8786 6.70882C22.906 6.92513 24.822 7.74407 26.3794 9.05995" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M15.0454 24.8956C13.5454 24.5528 10.1554 22.3242 9.6454 17.9871M9.81254 37.4828C8.28683 38.6871 7.06969 41.4128 6.67969 43.5985M29.9983 44.5842C30.0028 46.1558 30.3246 47.7103 30.9444 49.1545C31.5642 50.5987 32.4692 51.9029 33.6052 52.9889C34.7412 54.0749 36.0848 54.9204 37.5554 55.4746C39.026 56.0288 40.5934 56.2804 42.1636 56.2143C43.7338 56.1482 45.2745 55.7658 46.6933 55.0899C48.1121 54.414 49.3798 53.4586 50.4205 52.2809C51.4612 51.1032 52.2534 49.7276 52.7496 48.2364C53.2458 46.7452 53.4358 45.1692 53.3083 43.6028C55.7383 40.9928 57.2683 35.8885 57.2683 31.6285C57.2683 29.7685 56.9768 27.9256 56.4454 26.2071" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M50.1849 37.4828C51.7106 38.6871 52.9277 41.4128 53.3177 43.5985M30.2734 18.4585C28.7734 18.1928 28.7734 16.0371 30.2734 15.7757C32.9368 15.3107 35.4017 14.0641 37.3546 12.1944C39.3075 10.3247 40.6602 7.91631 41.2406 5.27568L41.3306 4.85997C41.6563 3.37282 43.7734 3.35997 44.112 4.84711L44.2192 5.33139C44.8181 7.96181 46.1818 10.3562 48.1387 12.2132C50.0956 14.0702 52.5581 15.3067 55.2163 15.7671C56.7291 16.0285 56.7291 18.2014 55.2163 18.4671C52.5581 18.9275 50.0956 20.164 48.1387 22.021C46.1818 23.878 44.8181 26.2724 44.2192 28.9028L44.112 29.3828C43.7692 30.8657 41.6563 30.8571 41.3306 29.37L41.2406 28.9585C40.6602 26.3179 39.3075 23.9096 37.3546 22.0398C35.4017 20.1701 32.9368 18.9235 30.2734 18.4585Z" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/> </svg></span>Inteligência Sello</h3>
+      <p class="recipe__ai-lead">A tecnologia que transforma informação em confiança.</p>
+      <p class="recipe__ai-body">Nossa IA analisa avaliações, críticas especializadas, listas, premiações e a experiência da comunidade para construir uma visão muito mais completa sobre cada restaurante.</p>
+    </div>
   </div>
 </section>
 
@@ -363,82 +365,103 @@
   </section>
 
   <!-- ---------- CIDADE (masonry) ---------- -->
-  <section class="city">
-    <div class="wrap city__head">
-      <h2 class="display display--center" data-reveal><span class="line">Sua cidade através de outras</span><span class="line">perspectivas</span></h2>
-      <div class="city__cta" data-reveal data-delay="1">
-        <a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR APP</span></a>
+  
+
+    <!-- ---------- FAQ (As perguntas que mais recebemos — Figma 2028:1752) ---------- -->
+  <section class="faq" id="faq">
+    <div class="faq__inner wrap">
+      <div class="faq__l">
+        <h2 class="faq__title" data-reveal>As perguntas que <span class="accent">mais recebemos</span></h2>
+        <div class="faq__list" data-reveal data-delay="1">
+          <div class="faq__row">
+            <button class="faq__q" aria-expanded="false">Como os rankings são calculados?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="faq__a"><p>Cada lugar recebe um Sello Score, que junta as avaliações da comunidade com fontes públicas confiáveis e a regularidade do restaurante ao longo do tempo. Quanto mais avaliações consistentes, mais firme fica a nota.</p></div>
+          </div>
+          <div class="faq__row">
+            <button class="faq__q" aria-expanded="false">Em quais cidades o Sello está disponível?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="faq__a"><p>No lançamento, o Sello começa por São Paulo, com novos bairros e cidades chegando conforme a comunidade cresce.</p></div>
+          </div>
+          <div class="faq__row">
+            <button class="faq__q" aria-expanded="false">Posso criar minhas próprias listas?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="faq__a"><p>Sim. Você monta listas e guias com seus lugares favoritos, organiza por ocasião e compartilha com quem quiser.</p></div>
+          </div>
+          <div class="faq__row">
+            <button class="faq__q" aria-expanded="false">O Sello é uma plataforma de reservas?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="faq__a"><p>Não. O Sello é sobre descoberta e curadoria — ajudamos você a escolher onde ir; a reserva você faz direto com o restaurante.</p></div>
+          </div>
+        </div>
       </div>
+      <div class="faq__media" data-reveal data-delay="1"><img src="assets/img/faq-bar.jpg" alt="Pessoas conversando em um bar" decoding="async" /></div>
     </div>
-    <div class="city__wall" aria-hidden="true" data-city-wall></div>
   </section>
 
-  <!-- ---------- DEPOIMENTOS (carrossel) ---------- -->
-  <section class="section reviews" id="membros">
-    <div class="wrap">
-      <h2 class="display display--center" data-reveal>O que os membros <span class="accent">estão dizendo</span></h2>
-      <p class="muted muted--center" data-reveal data-delay="1">Feedback sincero de quem já está descobrindo novos lugares com o Sello.</p>
-    </div>
-    <div class="marquee" data-reveal data-delay="2"><div class="marquee__track" data-marquee="left" data-row="1"></div></div>
-    <div class="marquee" data-reveal data-delay="2"><div class="marquee__track" data-marquee="right" data-row="2"></div></div>
-  </section>
-
-  <!-- ---------- FAQ ---------- -->
-  <section class="section faq wrap" id="faq">
-    <h2 class="display display--center" data-reveal>Perguntas que ouvimos com frequência</h2>
-    <div class="faq__list" data-reveal data-delay="1">
-      <div class="faq__row">
-        <button class="faq__q" aria-expanded="false">Como os rankings são calculados?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq__a"><p>Cada lugar recebe um Sello Score, que junta as avaliações da comunidade com fontes públicas confiáveis e a regularidade do restaurante ao longo do tempo. Quanto mais avaliações consistentes um lugar acumula, mais firme fica a nota.</p></div>
-      </div>
-      <div class="faq__row">
-        <button class="faq__q" aria-expanded="false">O que influencia a posição de um perfil nos rankings?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq__a"><p>O que pesa é avaliar com regularidade e escrever avaliações que ajudam quem lê a decidir. Quando as suas recomendações combinam com o gosto de quem te segue, o seu perfil passa a aparecer mais para essas pessoas.</p></div>
-      </div>
-      <div class="faq__row">
-        <button class="faq__q" aria-expanded="false">Por que algumas avaliações têm mais destaque que outras?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq__a"><p>Aparecem primeiro as avaliações recentes e detalhadas, de quem já tem histórico no Sello. Uma avaliação que conta o que a pessoa pediu e como foi o atendimento ajuda mais quem está decidindo.</p></div>
-      </div>
-      <div class="faq__row">
-        <button class="faq__q" aria-expanded="false">Como o Sello escolhe os lugares em destaque?<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq__a"><p>O destaque vem do cruzamento entre o que a comunidade salva e revisita e a nossa curadoria editorial. Nenhum restaurante paga para aparecer ali; o espaço é de quem se mantém bom mês após mês.</p></div>
+  <!-- ---------- DEPOIMENTOS (O que os nossos membros — Figma 2028:1752) ---------- -->
+  <section class="reviews" id="membros">
+    <div class="reviews__inner wrap">
+      <h2 class="reviews__title" data-reveal>O que os nossos membros <span class="accent">estão dizendo</span></h2>
+      <div class="reviews__grid">
+        <article class="rev" data-reveal>
+          <img class="rev__av" src="assets/avatars/av1.png" alt="" decoding="async" />
+          <span class="rev__name">Giovanna C.</span>
+          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
+          <p class="rev__q">&ldquo;Sempre esquecia as indicações que recebia. Agora salvo tudo no Sello e nunca mais perco uma recomendação boa.&rdquo;</p>
+        </article>
+        <article class="rev" data-reveal data-delay="1">
+          <img class="rev__av" src="assets/avatars/av2.png" alt="" decoding="async" />
+          <span class="rev__name">Gabriel V.</span>
+          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
+          <p class="rev__q">&ldquo;Descobri lugares incríveis que não apareciam em nenhum outro app. A curadoria faz toda a diferença.&rdquo;</p>
+        </article>
+        <article class="rev" data-reveal data-delay="2">
+          <img class="rev__av" src="assets/avatars/av3.png" alt="" decoding="async" />
+          <span class="rev__name">Thales A.</span>
+          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
+          <p class="rev__q">&ldquo;Finalmente um lugar onde as recomendações vêm de quem realmente entende e vive a cidade.&rdquo;</p>
+        </article>
       </div>
     </div>
   </section>
 </div><!-- /.sheet -->
 
-<!-- ===================== CTA FINAL ===================== -->
-<section class="finalcta" id="baixar">
+<!-- ===================== CTA FINAL (Figma 2028:1752) ===================== -->
+<section class="cta-final" id="baixar">
+  <div class="wrap cta-final__inner">
+    <div class="cta-final__head">
+      <h2 class="anton cta-final__title" id="manifesto" data-split>SEU PRÓXIMO RESTAURANTE JÁ ESTÁ TE ESPERANDO</h2>
+      <img class="cta-final__star" src="assets/img/seal.svg" alt="" aria-hidden="true" />
+    </div>
+    <p class="cta-final__sub" data-reveal data-delay="1">Curadoria editorial, inteligência e uma comunidade apaixonada por gastronomia. Tudo para ajudar você a escolher restaurantes que realmente valem a pena.</p>
+    <div class="cta-final__btn" data-reveal data-delay="2"><a href="#baixar" class="btn btn--accent btn--app"><span class="btn__t">BAIXAR O APP</span></a></div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER (Figma 2028:1752) ===================== -->
+<footer class="finalcta">
   <div class="wrap fc">
     <div class="fc__top">
-      <div class="fc__cta">
-        <h2 class="anton fc__title" id="manifesto" data-split>OS MELHORES RESTAURANTES VÊM DE PESSOAS.</h2>
-        <p class="fc__sub" data-reveal data-delay="1">Explore. Avalie. Se conecte.</p>
-        <a href="#" class="btn btn--white btn--app" data-reveal data-delay="2"><span class="btn__t">BAIXAR APP</span></a>
-      </div>
+      <nav class="fc__cols" aria-label="Rodapé">
+        <div class="fc__col">
+          <h4 class="anton">Produto</h4>
+          <a href="#baixar">Baixe o aplicativo</a>
+          <a href="#recursos">Features</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="fc__col">
+          <h4 class="anton">Empresa</h4>
+          <a href="#">Nos contate</a>
+          <a href="#">Suporte</a>
+        </div>
+        <div class="fc__col">
+          <h4 class="anton">Socials</h4>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </div>
+      </nav>
       <div class="fc__qr" data-reveal data-delay="1">
         <div class="fc__qrcard"><img src="assets/img/qr.png" alt="QR para baixar o aplicativo Sello" decoding="async" /></div>
         <span>Baixar Aplicativo</span>
       </div>
     </div>
-    <nav class="fc__cols" aria-label="Rodapé">
-      <div class="fc__col">
-        <h4 class="anton">Produto</h4>
-        <a href="#baixar">Baixe o aplicativo</a>
-        <a href="#recursos">Features</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <div class="fc__col">
-        <h4 class="anton">Empresa</h4>
-        <a href="#">Nos contate</a>
-        <a href="#">Suporte</a>
-      </div>
-      <div class="fc__col">
-        <h4 class="anton">Socials</h4>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-      </div>
-    </nav>
     <div class="fc__legal">
       <span>2026 SELLO — ALL RIGHTS RESERVED</span>
       <a href="/privacidade.html" target="_blank" rel="noopener">POLÍTICA DE PRIVACIDADE</a>
@@ -446,7 +469,7 @@
     </div>
   </div>
   <span class="fc__wm" aria-hidden="true"></span>
-</section>
+</footer>
 
 </main>
 
