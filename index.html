@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Inter:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/sello.css?v=84" />
+  <link rel="stylesheet" href="css/sello.css?v=85" />
 </head>
 <body>
 
@@ -75,11 +75,11 @@
       </div>
     </div>
   </div>
-  <img src="assets/img/seal.svg" alt="" class="hero__seal" aria-hidden="true" />
 </section>
 
 <!-- ===================== WHITE SHEET ===================== -->
 <div class="sheet">
+  <img src="assets/img/seal.svg" alt="" class="sheet__seal" aria-hidden="true" />
 
 <!-- ===================== DESCOBRIR (problem framing — Figma 2028:1752) ===================== -->
 <section class="discover wrap" id="discover">
@@ -257,26 +257,16 @@
   <!-- ---------- EXPERIÊNCIAS (stats) ---------- -->
   <!-- ---------- STATS (Uma curadoria que cresce — Figma 2028:1752) ---------- -->
   <section class="stats" id="numeros">
-    <div class="stats__row">
-      <div class="stats__l">
-        <h2 class="stats__title" data-reveal>Uma curadoria que cresce <strong>todos os dias.</strong></h2>
-        <img class="stats__img" src="assets/img/stats-couple.jpg" alt="Casal jantando em um restaurante" decoding="async" data-reveal data-delay="1" />
-      </div>
+    <div class="stats__card" aria-hidden="true"></div>
+    <div class="wrap stats__row">
+      <h2 class="stats__title" data-reveal>Uma curadoria que cresce <strong>todos os dias.</strong></h2>
       <div class="stats__nums">
-        <div class="snum" data-reveal>
-          <span class="snum__n anton">+1.000</span>
-          <span class="snum__l">exploradores gastronômicos</span>
-        </div>
-        <div class="snum" data-reveal data-delay="1">
-          <span class="snum__n anton">+500</span>
-          <span class="snum__l">restaurantes selecionados</span>
-        </div>
-        <div class="snum" data-reveal data-delay="2">
-          <span class="snum__n anton">+50</span>
-          <span class="snum__l">guias temáticos</span>
-        </div>
+        <div class="snum" data-reveal><span class="snum__n anton">+1.000</span><span class="snum__l">exploradores gastronômicos</span></div>
+        <div class="snum" data-reveal data-delay="1"><span class="snum__n anton">+500</span><span class="snum__l">restaurantes selecionados</span></div>
+        <div class="snum" data-reveal data-delay="2"><span class="snum__n anton">+50</span><span class="snum__l">guias temáticos</span></div>
       </div>
     </div>
+    <img class="stats__img" src="assets/img/stats-couple.jpg" alt="Casal jantando em um restaurante" decoding="async" data-reveal />
   </section>
 
   <!-- ---------- RECURSOS (bento, 6 cards) ---------- -->
@@ -404,19 +394,19 @@
           <img class="rev__av" src="assets/avatars/av1.png" alt="" decoding="async" />
           <span class="rev__name">Giovanna C.</span>
           <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Sempre esquecia as indicações que recebia. Agora salvo tudo no Sello e nunca mais perco uma recomendação boa.&rdquo;</p>
+          <p class="rev__q">&ldquo;Baixei por causa de um amigo e acabei usando mais do que imaginava.&rdquo;</p>
         </article>
         <article class="rev" data-reveal data-delay="1">
           <img class="rev__av" src="assets/avatars/av2.png" alt="" decoding="async" />
           <span class="rev__name">Gabriel V.</span>
           <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Descobri lugares incríveis que não apareciam em nenhum outro app. A curadoria faz toda a diferença.&rdquo;</p>
+          <p class="rev__q">&ldquo;Gostei de ver que não tem 15 mil restaurantes. Dá menos ansiedade pra escolher.&rdquo;</p>
         </article>
         <article class="rev" data-reveal data-delay="2">
           <img class="rev__av" src="assets/avatars/av3.png" alt="" decoding="async" />
           <span class="rev__name">Thales A.</span>
           <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Finalmente um lugar onde as recomendações vêm de quem realmente entende e vive a cidade.&rdquo;</p>
+          <p class="rev__q">&ldquo;Finalmente um app que explica por que um restaurante vale a pena.&rdquo;</p>
         </article>
       </div>
     </div>
