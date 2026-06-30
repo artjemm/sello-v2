@@ -131,15 +131,14 @@ h1,h2,h3,h4{margin:0}
 @keyframes heroBob{0%,100%{transform:translateY(-3px);opacity:.5}50%{transform:translateY(4px);opacity:1}}
 @media (prefers-reduced-motion:reduce){.hero__scroll-ico{animation:none}}
 
-/* ---- MOBILE: hero em coluna — conteúdo flui do topo e o "role para descobrir"
-   vira item in-flow (margin-top:auto), então NUNCA sobrepõe o conteúdo, em
-   qualquer altura de viewport. Foto valoriza a mulher (direita). Sheet menos round. ---- */
+/* ---- MOBILE: hero em coluna, conteúdo no topo; "role para descobrir" escondido
+   (redundante no celular, evitava layout torto). Foto valoriza a mulher (direita). Sheet menos round. ---- */
 @media (max-width:760px){
   .hero{flex-direction:column;align-items:stretch}
   .hero__content{padding-top:clamp(94px,14vh,116px);padding-bottom:26px;transform:none}
-  .hero__scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:auto;align-self:center;padding-block:6px 22px}
-  .hero__media img{object-position:68% center}
-  .sheet{border-radius:24px 24px 0 0}
+  .hero__scroll{display:none}
+  .hero__media img{object-position:75% 38%}
+  .sheet{border-radius:16px 16px 0 0}
 }
 
 /* ===================== SHEET ===================== */
@@ -663,13 +662,13 @@ h1,h2,h3,h4{margin:0}
 .stats__img{position:absolute;z-index:1;left:0;top:calc(clamp(56px,7.5vw,108px) + clamp(36px,4vw,60px) + 2.8 * clamp(1.7rem,3vw,2.8rem));bottom:clamp(40px,7vw,104px);width:clamp(300px,55%,960px);border-radius:0 22px 22px 0;overflow:hidden;display:block}
 .stats__img img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:860px){
-  /* mobile: foto acima do texto (contida, não muito alta), fundo vermelho SEM
-     radius, e tudo alinhado ao gutter da página (--wrap/--pad) como as outras seções */
-  .stats{display:flex;flex-direction:column}
-  .stats__card{display:none}
-  .stats__img{display:block;position:static;order:-1;width:100%;max-width:var(--wrap);margin:0 auto clamp(22px,5vw,32px);padding-inline:var(--pad);box-sizing:border-box;border-radius:0;overflow:visible;height:auto}
-  .stats__img img{height:clamp(178px,44vw,240px);border-radius:16px}
-  .stats__row{position:relative;background:var(--red);border-radius:0;max-width:var(--wrap);margin-inline:auto;grid-template-columns:1fr;gap:clamp(22px,5vw,36px);padding:clamp(32px,7vw,52px) var(--pad) clamp(40px,7vw,60px);transform:none}
+  /* mobile: a foto fica DENTRO do box vermelho (acima do texto), o box é full-bleed
+     sem radius, e o conteúdo alinha ao gutter da página (--pad) */
+  .stats{display:flex;flex-direction:column;position:relative;padding-block:clamp(36px,7vw,56px)}
+  .stats__card{display:block;position:absolute;left:0;right:0;top:clamp(36px,7vw,56px);bottom:clamp(36px,7vw,56px);border-radius:0;z-index:0}
+  .stats__img{display:block;position:relative;inset:auto;z-index:2;order:-1;width:auto;margin:clamp(22px,5vw,30px) var(--pad) 0;height:clamp(170px,42vw,228px);border-radius:14px;overflow:hidden}
+  .stats__img img{height:100%;border-radius:14px}
+  .stats__row{position:relative;z-index:2;background:transparent;border-radius:0;max-width:var(--wrap);margin-inline:auto;grid-template-columns:1fr;gap:clamp(22px,5vw,36px);padding:clamp(24px,5vw,36px) var(--pad) clamp(36px,7vw,52px);transform:none}
   .stats__title{max-width:none}
   .stats__nums{text-align:left;flex-direction:column;gap:24px}
   .snum__n{font-size:clamp(3.4rem,16vw,5.5rem)}
@@ -700,7 +699,7 @@ h1,h2,h3,h4{margin:0}
 .cta-final{background:#fff;position:relative;z-index:2}
 .cta-final__inner{padding-block:clamp(56px,7.5vw,108px) calc(clamp(56px,7.5vw,108px) + 44px)}
 .cta-final__head{position:relative}
-.cta-final__title{font-family:var(--font-disp);text-transform:uppercase;font-weight:400;color:var(--ink);font-size:clamp(2.6rem,7vw,5.6rem);line-height:1.06;letter-spacing:.01em;margin:0;max-width:none}
+.cta-final__title{font-family:var(--font-disp);text-transform:uppercase;font-weight:400;color:var(--ink);font-size:clamp(2.6rem,7vw,5.6rem);line-height:1.28;letter-spacing:.01em;margin:0;max-width:none}
 .cta-final__star{position:absolute;font-size:clamp(2.6rem,7vw,5.6rem);left:5.35em;top:.4em;width:1.5em;height:auto;transform:rotate(-6deg);pointer-events:none}
 .cta-final__sub{font-family:var(--font-body);font-weight:400;font-size:clamp(1.05rem,1.5vw,1.4rem);line-height:1.5;color:var(--ink);max-width:720px;margin:clamp(20px,2.4vw,34px) 0 0}
 .cta-final__btn{margin-top:clamp(26px,3vw,42px)}
