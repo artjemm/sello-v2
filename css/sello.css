@@ -131,6 +131,17 @@ h1,h2,h3,h4{margin:0}
 @keyframes heroBob{0%,100%{transform:translateY(-3px);opacity:.5}50%{transform:translateY(4px);opacity:1}}
 @media (prefers-reduced-motion:reduce){.hero__scroll-ico{animation:none}}
 
+/* ---- MOBILE: hero em coluna — conteúdo flui do topo e o "role para descobrir"
+   vira item in-flow (margin-top:auto), então NUNCA sobrepõe o conteúdo, em
+   qualquer altura de viewport. Foto valoriza a mulher (direita). Sheet menos round. ---- */
+@media (max-width:760px){
+  .hero{flex-direction:column;align-items:stretch}
+  .hero__content{padding-top:clamp(94px,14vh,116px);padding-bottom:26px;transform:none}
+  .hero__scroll{position:static;left:auto;bottom:auto;transform:none;margin-top:auto;align-self:center;padding-block:6px 22px}
+  .hero__media img{object-position:68% center}
+  .sheet{border-radius:24px 24px 0 0}
+}
+
 /* ===================== SHEET ===================== */
 /* sheet inteira (incl. selo, que sobe ~44px) fica ABAIXO da 1a dobra: hero=100svh sticky, gap atras dele fica escondido; ela sobe por cima ao rolar */
 .sheet{position:relative;z-index:2;background:#fff;border-radius:44px 44px 0 0;margin-top:52px;padding-top:8px}
@@ -652,12 +663,16 @@ h1,h2,h3,h4{margin:0}
 .stats__img{position:absolute;z-index:1;left:0;top:calc(clamp(56px,7.5vw,108px) + clamp(36px,4vw,60px) + 2.8 * clamp(1.7rem,3vw,2.8rem));bottom:clamp(40px,7vw,104px);width:clamp(300px,55%,960px);border-radius:0 22px 22px 0;overflow:hidden;display:block}
 .stats__img img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:860px){
-  .stats__row{grid-template-columns:1fr;gap:clamp(24px,5vw,40px);padding-bottom:clamp(44px,8vw,72px);transform:none}
+  /* mobile: foto acima do texto (contida, não muito alta), fundo vermelho SEM
+     radius, e tudo alinhado ao gutter da página (--wrap/--pad) como as outras seções */
+  .stats{display:flex;flex-direction:column}
+  .stats__card{display:none}
+  .stats__img{display:block;position:static;order:-1;width:100%;max-width:var(--wrap);margin:0 auto clamp(22px,5vw,32px);padding-inline:var(--pad);box-sizing:border-box;border-radius:0;overflow:visible;height:auto}
+  .stats__img img{height:clamp(178px,44vw,240px);border-radius:16px}
+  .stats__row{position:relative;background:var(--red);border-radius:0;max-width:var(--wrap);margin-inline:auto;grid-template-columns:1fr;gap:clamp(22px,5vw,36px);padding:clamp(32px,7vw,52px) var(--pad) clamp(40px,7vw,60px);transform:none}
   .stats__title{max-width:none}
   .stats__nums{text-align:left;flex-direction:column;gap:24px}
   .snum__n{font-size:clamp(3.4rem,16vw,5.5rem)}
-  .stats__card{left:0;bottom:clamp(40px,4.5vw,68px)}
-  .stats__img{display:none}   /* foto do casal escondida no mobile p/ encurtar a section */
 }
 
 /* ===== FAQ (dark, 2-col + foto — Figma 2028:1752) ===== */
@@ -672,7 +687,7 @@ h1,h2,h3,h4{margin:0}
 .faq__a p{color:rgba(255,255,255,.66);max-width:none;padding-inline:2px;font-size:1.02rem}
 .faq__media{align-self:stretch;position:relative;z-index:5}
 .faq__media img{width:calc(100% + var(--pad) + max(0px,(100vw - var(--wrap))/2));max-width:none;margin-right:calc(-1 * (var(--pad) + max(0px,(100vw - var(--wrap))/2)));margin-top:calc(-1 * clamp(72px,11vw,150px));height:calc(100% + clamp(72px,11vw,150px) + 40px);object-fit:cover;border-radius:24px 0 0 24px;display:block}
-@media (max-width:860px){.bento-sec{padding-bottom:clamp(44px,5vw,72px)}.faq__inner{grid-template-columns:1fr;gap:clamp(24px,5vw,38px)}.faq__media{display:none}.faq__title{max-width:none}}
+@media (max-width:860px){.bento-sec{padding-bottom:calc(clamp(56px,7.5vw,108px) + 40px)}.faq__inner{grid-template-columns:1fr;gap:clamp(24px,5vw,38px)}.faq__media{display:none}.faq__title{max-width:none}}
 
 /* ===== REVIEWS (dark cards — Figma 2028:1752) ===== */
 .reviews{background:#1E1E1E}
