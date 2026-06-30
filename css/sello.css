@@ -663,16 +663,23 @@ h1,h2,h3,h4{margin:0}
 .stats__img{position:absolute;z-index:1;left:0;top:calc(clamp(56px,7.5vw,108px) + clamp(36px,4vw,60px) + 2.8 * clamp(1.7rem,3vw,2.8rem));bottom:clamp(40px,7vw,104px);width:clamp(300px,55%,960px);border-radius:0 22px 22px 0;overflow:hidden;display:block}
 .stats__img img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:860px){
-  /* mobile: a foto fica DENTRO do box vermelho (acima do texto), o box é full-bleed
-     sem radius, e o conteúdo alinha ao gutter da página (--pad) */
-  .stats{display:flex;flex-direction:column;position:relative;padding-block:clamp(36px,7vw,56px)}
-  .stats__card{display:block;position:absolute;left:0;right:0;top:clamp(36px,7vw,56px);bottom:clamp(36px,7vw,56px);border-radius:0;z-index:0}
-  .stats__img{display:block;position:relative;inset:auto;z-index:2;order:-1;width:auto;margin:clamp(22px,5vw,30px) var(--pad) 0;height:clamp(170px,42vw,228px);border-radius:14px;overflow:hidden}
-  .stats__img img{height:100%;border-radius:14px}
-  .stats__row{position:relative;z-index:2;background:transparent;border-radius:0;max-width:var(--wrap);margin-inline:auto;grid-template-columns:1fr;gap:clamp(22px,5vw,36px);padding:clamp(24px,5vw,36px) var(--pad) clamp(36px,7vw,52px);transform:none}
-  .stats__title{max-width:none}
-  .stats__nums{text-align:left;flex-direction:column;gap:24px}
-  .snum__n{font-size:clamp(3.4rem,16vw,5.5rem)}
+  /* mobile (Figma 2114:291): foto no topo com sangria à direita (cantos arredondados só
+     à esquerda) cavalgando a borda superior do painel vermelho full-bleed; abaixo o título
+     e os números empilhados, tudo alinhado ao gutter da página (--pad) */
+  .stats{display:flex;flex-direction:column;position:relative;padding-block:clamp(40px,9vw,60px)}
+  .stats__card{display:block;position:absolute;z-index:0;left:0;right:0;border-radius:0;
+    top:calc(clamp(40px,9vw,60px) + clamp(26px,7vw,34px));bottom:clamp(40px,9vw,60px)}
+  .stats__img{order:-1;display:block;position:relative;inset:auto;z-index:2;
+    width:auto;height:auto;aspect-ratio:370/283;margin:0 0 0 var(--pad);
+    border-radius:16px 0 0 16px;overflow:hidden}
+  .stats__img img{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+  .stats__row{position:relative;z-index:2;display:flex;flex-direction:column;align-items:stretch;
+    background:transparent;border-radius:0;max-width:none;margin:0;transform:none;
+    gap:clamp(16px,4vw,22px);padding:clamp(18px,5vw,24px) var(--pad) clamp(40px,11vw,52px)}
+  .stats__title{max-width:none;font-size:clamp(2rem,9.5vw,2.4rem);line-height:1.1}
+  .stats__nums{text-align:left;flex-direction:column;gap:clamp(30px,8vw,44px)}
+  .snum__n{font-size:clamp(4rem,21vw,5.4rem)}
+  .snum__l{color:rgba(246,242,237,.8)}
 }
 
 /* ===== FAQ (dark, 2-col + foto — Figma 2028:1752) ===== */
