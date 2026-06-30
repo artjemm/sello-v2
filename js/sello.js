@@ -138,6 +138,19 @@
     reveal(h); // shared IO adds .is-in on scroll-in (or instantly when reduced-motion/no-IO)
   });
 
+  /* ---------- play-once-on-scroll: dispara o demo 1x quando entra na viewport, depois solta
+     (mesmo idioma do odômetro de stats: IntersectionObserver + disconnect). Sem IO → roda já. ---------- */
+  function playOnce(el, start){
+    if (!el) return;
+    if (!('IntersectionObserver' in window)){ start(); return; }
+    // threshold:0 + margem inferior negativa → dispara quando o topo do demo sobe ~22% da viewport,
+    // independente da altura (telefones são mais altos que a tela, então um ratio fixo nunca fecharia).
+    var ob = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting){ ob.disconnect(); start(); } });
+    }, {rootMargin:'0px 0px -22% 0px', threshold:0});
+    ob.observe(el);
+  }
+
   /* ---------- live phones: hover-scroll distance (exact to screen bottom) ---------- */
   function setScrollVars(){
     [].forEach.call(document.querySelectorAll('.lphone'), function(ph){
@@ -178,20 +191,22 @@
 
   /* ---------- reviews: 2 carrosséis em sentidos opostos (slideshow puro) ---------- */
   var star='<svg viewBox="0 0 24 24"><path d="m12 17.27 4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>';
-  var REVIEWS={
+  var REVIEWS={                                            // pessoas (nome+foto) do Figma 2091:291; textos fornecidos pelo user (12 dos 15)
     '1':[
-      {a:'av1.png', n:'Giovanna C.', q:'Baixei por causa de um amigo e acabei usando mais do que imaginava.'},
-      {a:'av2.png', n:'Gabriel V.',  q:'Gostei de ver que não tem 15 mil restaurantes. Dá menos ansiedade pra escolher.'},
-      {a:'av3.png', n:'Letícia M.',  q:'Sempre esquecia as indicações que recebia. Agora salvo tudo em um lugar só.'},
-      {a:'av4.png', n:'Thales A.',   q:'Finalmente um app que explica por que um restaurante vale a pena.'},
-      {a:'av5.png', n:'Marina Y.',   q:'Parei de abrir cinco abas pra decidir onde jantar.'}
+      {a:'rev-giovanna.png', n:'Giovanna C.', q:'Achei um japonês que eu provavelmente nunca teria encontrado sozinha. Já virou um dos meus favoritos.'},
+      {a:'rev-nicolas.png',  n:'Nicolas K.',  q:'Gostei que as recomendações parecem ter um motivo. Não é só uma lista dos restaurantes mais famosos.'},
+      {a:'rev-tarcisio.png', n:'Tarcísio M.', q:'O guia de bares salvou nossa sexta. Todo mundo gostou do lugar.'},
+      {a:'rev-thales.png',   n:'Thales V.',   q:'Tenho o hábito de salvar lugares no Instagram e nunca lembrar depois. Aqui ficou muito mais organizado.'},
+      {a:'rev-joao.png',     n:'João T.',     q:'As descrições ajudam mais do que as notas. Dá pra entender se o restaurante combina com o momento.'},
+      {a:'rev-beatriz.png',  n:'Beatriz L.',  q:'Acabei conhecendo um bairro novo por causa de um restaurante que apareceu aqui.'}
     ],
     '2':[
-      {a:'av3.png', n:'Camila S.',    q:'Descobri uns cafés ótimos que nunca apareceriam pra mim no Instagram.'},
-      {a:'av4.png', n:'Guilherme R.', q:'É como ter um amigo que sempre sabe onde comer.'},
-      {a:'av5.png', n:'Fernanda M.',  q:'Virou meu lugar favorito pra organizar os restaurantes que quero visitar.'},
-      {a:'av1.png', n:'Helena B.',    q:'Confio mais nas recomendações daqui do que em qualquer ranking.'},
-      {a:'av2.png', n:'André C.',     q:'Não parece um app de avaliação tradicional, e isso é um elogio.'}
+      {a:'rev-mayara.png',   n:'Mayara M.',   q:'Já deixei de ir em lugar hypado porque a descrição mostrava exatamente o tipo de experiência que eu não queria.'},
+      {a:'rev-brenda.png',   n:'Brenda A.',   q:'Gostei que não parece uma rede social. Entro, escolho um lugar e pronto.'},
+      {a:'rev-rafael.png',   n:'Rafael G.',   q:'Achei legal que os guias não são óbvios. Descobri lugares que eu nunca tinha visto em outras listas.'},
+      {a:'rev-gabriel.png',  n:'Gabriel V.',  q:'Sempre travava quando alguém perguntava ‘onde vamos comer?’. Agora já tenho várias opções salvas.'},
+      {a:'rev-pamela.png',   n:'Pamela K.',   q:'É aquele tipo de app que você abre quando quer uma boa ideia, não quando quer ficar rolando infinitamente.'},
+      {a:'rev-fernanda.png', n:'Fernanda S.', q:'Gostei de ver que nem todo restaurante famoso está recomendado. Dá a sensação de que alguém realmente escolheu.'}
     ]
   };
   function rcard(d,dup){ return '<article class="rcard"'+(dup?' aria-hidden="true"':'')+'><div class="rcard__stars" role="img" aria-label="5 estrelas">'+star+star+star+star+star+'</div><p class="rcard__quote">&ldquo;'+d.q+'&rdquo;</p><div class="rcard__by"><img class="rcard__av" src="assets/avatars/'+d.a+'" alt="" decoding="async" width="44" height="44" />'+d.n+'</div></article>'; }
@@ -275,17 +290,16 @@
   /* ---------- DE SUA NOTA: slider corre + nota muda (loop contínuo) ---------- */
   var notaEl = document.querySelector('[data-nota]');
   if (notaEl && !reduce){
-    var notaBox = notaEl.closest('.nota'), nStart=null, N_DUR=2200, N_HOLD=1000;
+    var notaBox = notaEl.closest('.nota'), N_DUR=2200, nStart=null;
+    var notaSet = function(p){ notaBox.style.setProperty('--p', p.toFixed(3)); notaEl.textContent=(p*10).toFixed(1); };
     var notaStep = function(ts){
       if(nStart==null) nStart=ts;
-      var t=(ts-nStart)%(N_DUR+N_HOLD), p;
-      if(t<N_DUR){ var pr=t/N_DUR, e=pr<.5?2*pr*pr:1-Math.pow(-2*pr+2,2)/2; p=0.5+0.4*e; }
-      else p=0.9;
-      notaBox.style.setProperty('--p', p.toFixed(3));
-      notaEl.textContent=(p*10).toFixed(1);
-      requestAnimationFrame(notaStep);
+      var t=Math.min(1,(ts-nStart)/N_DUR), e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+      notaSet(0.5+0.4*e);
+      if(t<1) requestAnimationFrame(notaStep);          // anima 1x e congela em 9,0
     };
-    requestAnimationFrame(notaStep);
+    notaSet(0.5);                                        // frame base antes de entrar na tela
+    playOnce(notaBox, function(){ nStart=null; requestAnimationFrame(notaStep); });
   }
 
   /* ---------- EXPLORE mapa: transição (crossfade) entre as telas reais (fotos do user) ---------- */
@@ -293,29 +307,34 @@
   if (mapScr && !reduce){
     var slides = mapScr.querySelectorAll('.map-slide');
     if (slides.length > 1){
-      var mi = 0;
-      setInterval(function(){
-        slides[mi].classList.remove('is-on');
-        mi = (mi + 1) % slides.length;
-        slides[mi].classList.add('is-on');
-      }, 2400);
+      playOnce(mapScr, function(){
+        var mi = 0;
+        var advance = function(){                        // crossfade cada tela 1x, congela na última
+          slides[mi].classList.remove('is-on');
+          mi++;
+          slides[mi].classList.add('is-on');
+          if (mi < slides.length - 1) setTimeout(advance, 2400);
+        };
+        setTimeout(advance, 2400);                        // mostra a 1ª por um beat antes de trocar
+      });
     }
   }
 
   /* ---------- auto-pan estilo GIF: começa logo, roda contínuo, independente de scroll/hover ---------- */
   if (!reduce) [].forEach.call(document.querySelectorAll('[data-pan]'), function(panPh, pIdx){
-    var pImg = panPh.querySelector('.lphone__img'), pScr = panPh.querySelector('.lphone__scr'), pDown = false;
-    var panApply = function(){
+    var pImg = panPh.querySelector('.lphone__img'), pScr = panPh.querySelector('.lphone__scr'), armed = false;
+    var panTo = function(down){
       var dist = Math.max(0, pImg.clientHeight - pScr.clientHeight);
       if (dist < 8) return;
-      pImg.style.transform = 'translateY(' + (pDown ? -dist : 0).toFixed(0) + 'px)';
+      pImg.style.transform = 'translateY(' + (down ? -dist : 0).toFixed(0) + 'px)';
     };
-    var panStart = function(){
+    var panStart = function(){                            // rola topo→fim 1x e congela embaixo
+      if (armed) return; armed = true;
       pImg.style.transform = 'translateY(0)';
-      setTimeout(function go(){ pDown = !pDown; panApply(); setTimeout(go, 2800); }, 350 + pIdx * 180);
+      setTimeout(function(){ panTo(true); }, 350 + pIdx * 180);
     };
-    if (pImg.complete && pImg.naturalWidth) panStart(); else pImg.addEventListener('load', panStart);
-    addEventListener('resize', panApply, {passive:true});
+    playOnce(panPh, function(){ if (pImg.complete && pImg.naturalWidth) panStart(); else pImg.addEventListener('load', panStart); });
+    addEventListener('resize', function(){ if (armed) panTo(true); }, {passive:true});
   });
 
   /* ---------- AVALIE: sheet sobe → slider/nota animam → "Continuar" → crossfade "veredito enviado" (loop) ---------- */
@@ -328,16 +347,15 @@
       var step = function(ts){ if(start==null) start=ts; var t=Math.min(1,(ts-start)/dur); var e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2; rvSet(from+(target-from)*e); if(t<1) requestAnimationFrame(step); };
       requestAnimationFrame(step);
     };
-    var rvCycle = function(){
+    var rvRun = function(){                               // toca 1x e congela mostrando "veredito enviado"
       rv.classList.remove('is-sent','is-press'); rvSet(0.5);
       rv.classList.add('is-open');
       setTimeout(function(){ rvSlide(0.9, 1600); }, 800);
       setTimeout(function(){ rv.classList.add('is-press'); }, 2900);
       setTimeout(function(){ rv.classList.remove('is-press'); rv.classList.add('is-sent'); }, 3250);
-      setTimeout(function(){ rv.classList.remove('is-open'); }, 5400);
     };
-    rvCycle();
-    setInterval(rvCycle, 7600);
+    rvSet(0.5);
+    playOnce(rv, rvRun);
   }
 
   /* ---------- GAMEFICAÇÃO: trocar de chip (Geral/Exploração/Influência) reordena as pessoas do ranking ---------- */
@@ -347,7 +365,7 @@
     if (rkf.length && !reduce){
       var rki = 0;
       var rkShow = function(i){ rkf.forEach(function(f,k){ f.classList.toggle('is-on', k===i); }); };
-      var rkNext = function(){ rki = (rki + 1) % rkf.length; rkLoop(); };
+      var rkNext = function(){ if (rki >= rkf.length - 1) return; rki++; rkLoop(); };   // para e congela no último ranking
       var rkLoop = function(){
         rkShow(rki);
         if (rki === 0){                                  // FEED: rola até embaixo, volta ao topo, depois segue
@@ -360,7 +378,7 @@
           setTimeout(rkNext, 2400);
         }
       };
-      rkLoop();
+      playOnce(rk, function(){ rkShow(0); rkLoop(); });   // começa ao rolar até o ranking; toca 1x
     }
   }
 
