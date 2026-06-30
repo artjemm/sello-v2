@@ -665,7 +665,8 @@ h1,h2,h3,h4{margin:0}
 @media (max-width:860px){
   /* mobile (Figma 2114:291): foto no topo com sangria à direita (cantos arredondados só
      à esquerda) cavalgando a borda superior do painel vermelho full-bleed; abaixo o título
-     e os números empilhados, tudo alinhado ao gutter da página (--pad) */
+     e os números empilhados, tudo alinhado ao gutter da página (--pad).
+     Tipografia mantém a escala anterior — o Figma guiou só o layout. */
   .stats{display:flex;flex-direction:column;position:relative;padding-block:clamp(40px,9vw,60px)}
   .stats__card{display:block;position:absolute;z-index:0;left:0;right:0;border-radius:0;
     top:calc(clamp(40px,9vw,60px) + clamp(26px,7vw,34px));bottom:clamp(40px,9vw,60px)}
@@ -676,10 +677,9 @@ h1,h2,h3,h4{margin:0}
   .stats__row{position:relative;z-index:2;display:flex;flex-direction:column;align-items:stretch;
     background:transparent;border-radius:0;max-width:none;margin:0;transform:none;
     gap:clamp(16px,4vw,22px);padding:clamp(18px,5vw,24px) var(--pad) clamp(40px,11vw,52px)}
-  .stats__title{max-width:none;font-size:clamp(2rem,9.5vw,2.4rem);line-height:1.1}
+  .stats__title{max-width:none}
   .stats__nums{text-align:left;flex-direction:column;gap:clamp(30px,8vw,44px)}
-  .snum__n{font-size:clamp(4rem,21vw,5.4rem)}
-  .snum__l{color:rgba(246,242,237,.8)}
+  .snum__n{font-size:clamp(3.4rem,16vw,5.5rem)}
 }
 
 /* ===== FAQ (dark, 2-col + foto — Figma 2028:1752) ===== */
