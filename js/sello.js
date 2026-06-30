@@ -28,7 +28,8 @@
       if (heroContent && !reduce){
         var p = Math.min(1, Math.max(0, scrollY / (innerHeight * 0.62)));
         heroContent.style.opacity = (1 - p).toFixed(3);
-        heroContent.style.transform = 'translateY(' + (-p * 60).toFixed(1) + 'px)';
+        // parallax compoe com o offset base (--hero-shift) definido no CSS
+        heroContent.style.setProperty('--hero-parallax', (-p * 60).toFixed(1) + 'px');
       }
       sTick = false;
     });
@@ -179,32 +180,38 @@
   var star='<svg viewBox="0 0 24 24"><path d="m12 17.27 4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/></svg>';
   var REVIEWS={
     '1':[
-      {q:'Finalmente um app que me ajuda a lembrar todos os restaurantes que quero conhecer.', n:'Marina Y.'},
-      {q:'Já descobri mais lugares legais aqui em 2 meses do que em anos usando Google.', n:'Rafael S.'},
-      {q:'É muito melhor ver recomendações de pessoas do que notas aleatórias.', n:'Bruno T.'},
-      {q:'Sempre esquecia as indicações que recebia. Agora salvo tudo no Sello.', n:'Letícia M.'}
+      {a:'av1.png', n:'Giovanna C.', q:'Baixei por causa de um amigo e acabei usando mais do que imaginava.'},
+      {a:'av2.png', n:'Gabriel V.',  q:'Gostei de ver que não tem 15 mil restaurantes. Dá menos ansiedade pra escolher.'},
+      {a:'av3.png', n:'Letícia M.',  q:'Sempre esquecia as indicações que recebia. Agora salvo tudo em um lugar só.'},
+      {a:'av4.png', n:'Thales A.',   q:'Finalmente um app que explica por que um restaurante vale a pena.'},
+      {a:'av5.png', n:'Marina Y.',   q:'Parei de abrir cinco abas pra decidir onde jantar.'}
     ],
     '2':[
-      {q:'Virou meu lugar favorito para organizar restaurantes.', n:'Fernanda M.'},
-      {q:'É como ter um amigo que sempre sabe onde comer.', n:'Guilherme R.'},
-      {q:'Descobri vários cafés incríveis que nunca apareceriam para mim no Instagram.', n:'Camila S.'},
-      {q:'Gostei porque não parece um aplicativo de avaliação tradicional.', n:'André C.'}
+      {a:'av3.png', n:'Camila S.',    q:'Descobri uns cafés ótimos que nunca apareceriam pra mim no Instagram.'},
+      {a:'av4.png', n:'Guilherme R.', q:'É como ter um amigo que sempre sabe onde comer.'},
+      {a:'av5.png', n:'Fernanda M.',  q:'Virou meu lugar favorito pra organizar os restaurantes que quero visitar.'},
+      {a:'av1.png', n:'Helena B.',    q:'Confio mais nas recomendações daqui do que em qualquer ranking.'},
+      {a:'av2.png', n:'André C.',     q:'Não parece um app de avaliação tradicional, e isso é um elogio.'}
     ]
   };
-  function rcard(d){ return '<article class="rcard"><div class="rcard__stars">'+star+star+star+star+star+'</div><p class="rcard__quote">"'+d.q+'"</p><div class="rcard__by">'+d.n+'</div></article>'; }
+  function rcard(d,dup){ return '<article class="rcard"'+(dup?' aria-hidden="true"':'')+'><div class="rcard__stars" role="img" aria-label="5 estrelas">'+star+star+star+star+star+'</div><p class="rcard__quote">&ldquo;'+d.q+'&rdquo;</p><div class="rcard__by"><img class="rcard__av" src="assets/avatars/'+d.a+'" alt="" decoding="async" width="44" height="44" />'+d.n+'</div></article>'; }
   [].forEach.call(document.querySelectorAll('[data-marquee]'), function(mq){
     var data = REVIEWS[mq.getAttribute('data-row')] || REVIEWS['1'];
-    mq.innerHTML = data.map(rcard).join('') + data.map(rcard).join('');
+    if (reduce){                                            // sem animação: 1 conjunto só, vira faixa rolável (CSS reduced-motion)
+      mq.innerHTML = data.map(function(d){ return rcard(d); }).join('');
+      mq.style.transform = 'none';
+      return;
+    }
+    mq.innerHTML = data.map(function(d){ return rcard(d); }).join('') + data.map(function(d){ return rcard(d, true); }).join(''); // 2º conjunto = clone aria-hidden: loop sem costura, sem leitura dupla
     var dir = mq.getAttribute('data-marquee')==='right' ? 1 : -1;
-    var x = 0, speed = 0.35;
-    function frame(){
+    var x = 0, speed = 0.5;
+    (function frame(){
       x += dir*speed;
       var h = mq.scrollWidth/2;
       if(h>0){ x %= h; if(x>0) x-=h; }
       mq.style.transform='translateX('+x.toFixed(1)+'px)';
       requestAnimationFrame(frame);
-    }
-    if(!reduce) requestAnimationFrame(frame); else mq.style.transform='none';
+    })();
   });
 
   /* ---------- city wall: mosaico flex misturado; hover expande o box+coluna e os outros se ajustam (flex-grow, smooth); stretch-in; sem repetir foto ---------- */

@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Inter:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/sello.css?v=111" />
+  <link rel="stylesheet" href="css/sello.css?v=122" />
 </head>
 <body>
 
@@ -74,6 +74,10 @@
         <p class="hero__join">Junte-se à comunidade que transforma boas recomendações em <strong>grandes descobertas.</strong></p>
       </div>
     </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span class="hero__scroll-label">ROLE PARA DESCOBRIR</span>
+    <svg class="hero__scroll-ico" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
   </div>
 </section>
 
@@ -342,9 +346,9 @@
             </div>
             <div class="bcard b-mascot bcard--light r-soft" data-reveal data-delay="3">
               <div class="b-mascot__wm" aria-hidden="true">
-                <div class="swm" data-swm="left"><b class="o">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b><b class="g">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b></div>
-                <div class="swm" data-swm="right"><b class="f">SELLO</b><b class="o">SELLO</b><b class="g">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b></div>
-                <div class="swm" data-swm="left"><b class="o">SELLO</b><b class="g">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b></div>
+                <div class="swm" data-swm="left"><b class="o">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b></div>
+                <div class="swm" data-swm="right"><b class="f">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b></div>
+                <div class="swm" data-swm="left"><b class="o">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b><b class="o">SELLO</b><b class="o">SELLO</b><b class="f">SELLO</b></div>
               </div>
               <img class="b-mascot__img" src="assets/img/mascot-sello.png" alt="Mascote do Sello" decoding="async" />
             </div>
@@ -387,27 +391,15 @@
 
   <!-- ---------- DEPOIMENTOS (O que os nossos membros — Figma 2028:1752) ---------- -->
   <section class="reviews" id="membros">
-    <div class="reviews__inner wrap">
-      <h2 class="reviews__title" data-reveal>O que os nossos membros<br /><span class="accent">estão dizendo</span></h2>
-      <div class="reviews__grid">
-        <article class="rev" data-reveal>
-          <img class="rev__av" src="assets/avatars/av1.png" alt="" decoding="async" />
-          <span class="rev__name">Giovanna C.</span>
-          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Baixei por causa de um amigo e acabei usando mais do que imaginava.&rdquo;</p>
-        </article>
-        <article class="rev" data-reveal data-delay="1">
-          <img class="rev__av" src="assets/avatars/av2.png" alt="" decoding="async" />
-          <span class="rev__name">Gabriel V.</span>
-          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Gostei de ver que não tem 15 mil restaurantes. Dá menos ansiedade pra escolher.&rdquo;</p>
-        </article>
-        <article class="rev" data-reveal data-delay="2">
-          <img class="rev__av" src="assets/avatars/av3.png" alt="" decoding="async" />
-          <span class="rev__name">Thales A.</span>
-          <span class="rev__stars" aria-label="5 estrelas">★★★★★</span>
-          <p class="rev__q">&ldquo;Finalmente um app que explica por que um restaurante vale a pena.&rdquo;</p>
-        </article>
+    <div class="reviews__inner">
+      <div class="wrap">
+        <h2 class="reviews__title" data-reveal>O que os nossos membros<br /><span class="accent">estão dizendo</span></h2>
+      </div>
+      <div class="marquee">
+        <div class="marquee__track" data-marquee="left" data-row="1"></div>
+      </div>
+      <div class="marquee">
+        <div class="marquee__track" data-marquee="right" data-row="2"></div>
       </div>
     </div>
   </section>
@@ -487,6 +479,6 @@
 </div>
 
 <script src="js/lenis.min.js?v=1" defer></script>
-<script src="js/sello.js?v=45" defer></script>
+<script src="js/sello.js?v=48" defer></script>
 </body>
 </html>
