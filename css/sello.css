@@ -552,7 +552,7 @@ h1,h2,h3,h4{margin:0}
   .b-listas{aspect-ratio:633/422}
   .b-twophones{aspect-ratio:573/431}
   .bento__r2{flex-direction:column;aspect-ratio:auto;gap:18px}
-  .b-explore{aspect-ratio:422/640}
+  .b-explore{aspect-ratio:422/743}
   .bento__rightcol{gap:18px}
   .b-guias{aspect-ratio:784/349}
   .bento__r3{aspect-ratio:auto}
@@ -563,12 +563,10 @@ h1,h2,h3,h4{margin:0}
   .nav__menu{display:none}
   .steps__track{gap:16px}
   .scard{flex-basis:82%}
-  .b-twophones{aspect-ratio:573/431}
+  /* mobile: enxuga o bento — esconde "Eu dei meu veredito" (2 fones), Guias (carrossel) e o mascote */
+  .b-twophones,.b-guias,.b-mascot{display:none}
   .bento__r3{flex-direction:column}
   .footer__inner{flex-direction:column}
-  /* SELLO carrossel: maior e mais denso no celular */
-  .b-mascot{aspect-ratio:287/300}
-  .b-mascot__img{height:78%;max-height:300px}
   .swm{font-size:clamp(2.6rem,10vw,3.7rem)}
   /* rodapé: QR desce para baixo do botão, alinhado à esquerda */
   .fc__top{flex-direction:column;align-items:flex-start;gap:30px}
