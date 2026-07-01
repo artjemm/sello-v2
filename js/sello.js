@@ -209,24 +209,21 @@
       {a:'rev-fernanda.png', n:'Fernanda S.', q:'Gostei de ver que nem todo restaurante famoso está recomendado. Dá a sensação de que alguém realmente escolheu.'}
     ]
   };
-  function rcard(d,dup){ return '<article class="rcard"'+(dup?' aria-hidden="true"':'')+'><div class="rcard__stars" role="img" aria-label="5 estrelas">'+star+star+star+star+star+'</div><p class="rcard__quote">&ldquo;'+d.q+'&rdquo;</p><div class="rcard__by"><img class="rcard__av" src="assets/avatars/'+d.a+'" alt="" decoding="async" width="44" height="44" />'+d.n+'</div></article>'; }
+  function rcard(d){ return '<article class="rcard"><div class="rcard__stars" role="img" aria-label="5 estrelas">'+star+star+star+star+star+'</div><p class="rcard__quote">&ldquo;'+d.q+'&rdquo;</p><div class="rcard__by"><img class="rcard__av" src="assets/avatars/'+d.a+'" alt="" decoding="async" width="44" height="44" />'+d.n+'</div></article>'; }
+  /* marquees rodam em CSS keyframes (compositor): rAF por frame congela no iOS real (Low Power/ProMotion)
+     e lia scrollWidth todo frame (layout forçado). JS só monta 2 conjuntos (2º = clone aria-hidden, loop
+     sem costura) e mede o período pra manter a velocidade exata em px/s via --mq-dur. */
+  function mqBuild(el, setHtml, cls, pxPerSec){
+    if (reduce){ el.innerHTML = '<div class="'+cls+'">'+setHtml+'</div>'; return; } // sem animação: 1 conjunto, vira faixa rolável (CSS reduced-motion)
+    el.innerHTML = '<div class="'+cls+'">'+setHtml+'</div><div class="'+cls+'" aria-hidden="true">'+setHtml+'</div>';
+    var measure = function(){ var w = el.firstElementChild.getBoundingClientRect().width; if (w>0) el.style.setProperty('--mq-dur', (w/pxPerSec).toFixed(2)+'s'); };
+    measure();
+    if (window.ResizeObserver){ new ResizeObserver(measure).observe(el.firstElementChild); } // re-mede quando CSS/fonts/viewport mudarem o período
+    else { addEventListener('resize', measure); addEventListener('load', measure); }
+  }
   [].forEach.call(document.querySelectorAll('[data-marquee]'), function(mq){
     var data = REVIEWS[mq.getAttribute('data-row')] || REVIEWS['1'];
-    if (reduce){                                            // sem animação: 1 conjunto só, vira faixa rolável (CSS reduced-motion)
-      mq.innerHTML = data.map(function(d){ return rcard(d); }).join('');
-      mq.style.transform = 'none';
-      return;
-    }
-    mq.innerHTML = data.map(function(d){ return rcard(d); }).join('') + data.map(function(d){ return rcard(d, true); }).join(''); // 2º conjunto = clone aria-hidden: loop sem costura, sem leitura dupla
-    var dir = mq.getAttribute('data-marquee')==='right' ? 1 : -1;
-    var x = 0, speed = 0.5;
-    (function frame(){
-      x += dir*speed;
-      var h = mq.scrollWidth/2;
-      if(h>0){ x %= h; if(x>0) x-=h; }
-      mq.style.transform='translateX('+x.toFixed(1)+'px)';
-      requestAnimationFrame(frame);
-    })();
+    mqBuild(mq, data.map(function(d){ return rcard(d); }).join(''), 'marquee__set', 30); // 30px/s = 0.5px/frame@60 de antes
   });
 
   /* ---------- city wall: mosaico flex misturado; hover expande o box+coluna e os outros se ajustam (flex-grow, smooth); stretch-in; sem repetir foto ---------- */
@@ -384,30 +381,12 @@
 
   /* ---------- SELLO watermark: carrossel de 2 linhas em sentidos opostos ---------- */
   [].forEach.call(document.querySelectorAll('[data-swm]'), function(row){
-    row.innerHTML += row.innerHTML;
-    if (reduce) return;
-    var dir = row.getAttribute('data-swm') === 'right' ? 1 : -1, x = 0, speed = 0.32;
-    (function frame(){
-      x += dir * speed;
-      var h = row.scrollWidth / 2;
-      if (h > 0){ x %= h; if (x > 0) x -= h; }
-      row.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
-      requestAnimationFrame(frame);
-    })();
+    mqBuild(row, row.innerHTML, 'swm__set', 19.2); // 19.2px/s = 0.32px/frame@60 de antes
   });
 
   /* ---------- guias: carrossel horizontal (desliza p/ esquerda, fade vermelho na borda) ---------- */
   [].forEach.call(document.querySelectorAll('[data-gmarquee]'), function(track){
-    track.innerHTML += track.innerHTML;
-    if (reduce) return;
-    var x = 0, speed = 0.42;
-    (function frame(){
-      x -= speed;
-      var h = track.scrollWidth / 2;
-      if (h > 0){ x %= h; if (x > 0) x -= h; }
-      track.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
-      requestAnimationFrame(frame);
-    })();
+    mqBuild(track, track.innerHTML, 'gmarquee__set', 25.2); // 25.2px/s = 0.42px/frame@60 de antes
   });
 
   /* ---------- download modal (todos os "BAIXAR APP" abrem o modal) ---------- */
