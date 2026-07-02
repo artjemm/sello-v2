@@ -626,7 +626,7 @@ h1,h2,h3,h4{margin:0}
 .recipe__top{display:flex;justify-content:space-between;align-items:center;gap:clamp(28px,4vw,72px)}
 .recipe__intro{max-width:760px}
 .recipe__eye{display:block;font-family:var(--font-body);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(.82rem,.95vw,.95rem);color:var(--red);margin-bottom:clamp(12px,1.2vw,18px)}
-.recipe__title{font-family:var(--font-body);font-weight:400;font-size:clamp(1.5rem,2.7vw,2.2rem);line-height:1.16;letter-spacing:-.01em;color:var(--ink);margin:0;max-width:18ch}
+.recipe__title{font-family:var(--font-body);font-weight:400;font-size:clamp(1.5rem,2.7vw,2.2rem);line-height:1.16;letter-spacing:-.01em;color:var(--ink);margin:0;max-width:30ch}
 .recipe__title strong{font-weight:800;color:var(--red)}
 .recipe__art{flex:0 0 auto;width:clamp(140px,15vw,196px)}
 .recipe__art svg{width:100%;height:auto;overflow:visible;display:block}
