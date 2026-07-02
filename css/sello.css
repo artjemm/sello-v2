@@ -117,7 +117,7 @@ h1,h2,h3,h4{margin:0}
 .hero__title .line+.line{margin-top:8px}
 .hero__sub{font-size:clamp(1rem,1.45vw,1.2rem);color:rgba(255,255,255,.9);max-width:560px;margin:22px 0 0;line-height:1.5}
 .hero__cta{margin-top:34px;display:flex;flex-flow:row wrap;align-items:center;justify-content:space-between;gap:18px 22px}
-#manifesto,#como-funciona,#recursos,#membros,#faq{scroll-margin-top:96px}
+#receita,#como-funciona,#recursos,#membros,#faq{scroll-margin-top:96px}
 .hero__join-wrap{display:flex;align-items:center;gap:14px}
 .avatars{display:inline-flex;flex:none}
 .avatars img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.92);margin-left:-13px;box-shadow:0 3px 10px rgba(0,0,0,.3)}
