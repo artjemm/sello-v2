@@ -284,6 +284,26 @@
     });
   });
 
+  /* Foto da FAQ fica ESTÁTICA: a célula .faq__media é align-self:stretch e a
+     img usa height:calc(100% + …) — abrir uma resposta crescia a linha do grid
+     e a foto "ampliava" (object-fit:cover re-enquadra). Trava a célula na
+     altura do estado fechado (mede o stretch e desconta respostas abertas);
+     re-mede em resize/fonts. */
+  var faqMedia = document.querySelector('.faq__media');
+  if (faqMedia){
+    var faqFreeze = function(){
+      if (getComputedStyle(faqMedia).display === 'none') return;   // mobile esconde a foto
+      faqMedia.style.height = 'auto';
+      var openH = 0;
+      [].forEach.call(document.querySelectorAll('.faq__a'), function(a){ openH += a.offsetHeight; });
+      faqMedia.style.height = (faqMedia.offsetHeight - openH) + 'px';
+    };
+    faqFreeze();
+    addEventListener('resize', faqFreeze);
+    addEventListener('load', faqFreeze);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(faqFreeze);
+  }
+
   /* ---------- DE SUA NOTA: slider corre + nota muda (loop contínuo) ---------- */
   var notaEl = document.querySelector('[data-nota]');
   if (notaEl && !reduce){
