@@ -203,7 +203,7 @@
     '2':[
       {a:'rev-mayara.png',   n:'Mayara M.',   q:'Já deixei de ir em lugar hypado porque a descrição mostrava exatamente o tipo de experiência que eu não queria.'},
       {a:'rev-brenda.png',   n:'Brenda A.',   q:'Gostei que não parece uma rede social. Entro, escolho um lugar e pronto.'},
-      {a:'rev-rafael.png',   n:'Rafael G.',   q:'Achei legal que os guias não são óbvios. Descobri lugares que eu nunca tinha visto em outras listas.'},
+      {a:'rev-joao-a.png',   n:'João A.',     q:'Achei legal que os guias não são óbvios. Descobri lugares que eu nunca tinha visto em outras listas.'},
       {a:'rev-gabriel.png',  n:'Gabriel V.',  q:'Sempre travava quando alguém perguntava ‘onde vamos comer?’. Agora já tenho várias opções salvas.'},
       {a:'rev-pamela.png',   n:'Pamela K.',   q:'É aquele tipo de app que você abre quando quer uma boa ideia, não quando quer ficar rolando infinitamente.'},
       {a:'rev-fernanda.png', n:'Fernanda S.', q:'Gostei de ver que nem todo restaurante famoso está recomendado. Dá a sensação de que alguém realmente escolheu.'}
